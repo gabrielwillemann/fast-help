@@ -1,0 +1,12 @@
+* Adicionar usuários
+    $ adduser USERNAME
+    $ addgroup USERNAME root
+    $ addgroup USERNAME admin
+    $ addgroup USERNAME sudo
+* Mostrar todos os usuários
+    $ getent passwd
+    $ cat /etc/passwd
+* Mostrar todos os grupos
+    $ cat /etc/group
+* Mostrar grupos do usuário atual
+    $ groups

@@ -1,0 +1,596 @@
+
+
+.JelloSizer {
+    margin: 0px auto;
+    max-width: 0px;
+    padding: 0px;
+    width: 0px;
+}
+
+.JelloExpander {
+    margin: 0px -483px;
+    min-width: 966px;
+    position: relative;
+}
+
+.JelloWrapper {
+    background: url('/platform/masterpages/TechnetPage2/bg_branding_technet.jpg') no-repeat right top;
+    width: 100%;
+}
+
+
+.mainDiv
+{
+	left: 0px;
+	top: 0px;
+	position: absolute;
+	overflow: auto;
+	margin-left: 2px;	
+    background: #fff url('/platform/masterpages/TechnetPage2/bg_body_technet.jpg') repeat-x top;
+}
+
+.FeatureSmallHeadWithLogo
+{
+	font-family: "Segoe UI", Verdana, Sans-Serif;
+	font-size: 20px;
+	font-style: normal;
+	font-variant: normal;
+	color: #C04B27;
+	padding-bottom:10px;
+	border-bottom:solid 12px #5B6871;
+	text-decoration: none;
+	background-image: url('/Platform/MasterPages/TechNetMagazine2/logo_TechNetMagazine.gif');
+	background-position: right center;
+	background-repeat: no-repeat;
+	padding-top:35px;
+
+}
+
+
+.MagazineStyle
+{
+	font-family: "Segoe UI", Verdana, Arial;
+	font-size: 14px;
+	font-weight: normal;
+	font-style: normal;
+	font-variant: normal;
+	text-transform: none;
+	padding-bottom: 7px;
+	line-height: 18px;
+	color: #333333;
+}
+
+.MagazineStyle .ColumnTitle h2
+{
+	font-weight: normal;
+	font-family: "Segoe UI", Arial;
+	font-size: 36px;
+	font-style: normal;
+	font-variant: normal;
+	color: #3b6689;
+	text-decoration: none;
+	border-top-style: solid;
+	border-top-width: 12px;
+	border-top-color: #5b6871;
+	background-image: url('/Platform/MasterPages/TechNetMagazine2/logo_TechNetMagazine.gif');
+	background-position: right bottom;
+	background-repeat: no-repeat;
+	margin-bottom: 4px;
+	line-height:36px;
+	padding-top:12px;	
+}
+
+.MagazineStyle .ColumnTitle h1
+{
+	font-weight: normal;
+	font-family: "Segoe UI", Verdana, Sans-Serif;
+	font-size: 20px;
+	font-style: normal;
+	font-variant: normal;
+	color: #3b6689;
+	text-decoration: none;
+	line-height:20px;
+	margin-bottom: 8px;	
+}
+
+.MagazineStyle .ColumnTitle h3
+{
+	font-weight: normal;
+	font-family: "Segoe UI", Verdana, Sans-Serif;
+	font-size: 16px;
+	font-style: normal;
+	font-variant: normal;
+	color: #323e58;
+	text-decoration: none;
+	padding-bottom:10px;
+}
+
+
+.MagazineStyle .FeatureTitle h2
+{
+	font-family: "Segoe UI", Verdana, Sans-Serif;
+	font-size: 20px;
+	font-style: normal;
+	font-variant: normal;
+	color: #5b6871;
+	padding-bottom:10px;
+	border-bottom:solid 12px #5b6871;
+	text-decoration: none;
+	background-image: url('/Platform/MasterPages/TechNetMagazine2/logo_TechNetMagazine.gif');
+	background-position: right center;
+	background-repeat: no-repeat;
+	padding-top:35px;
+
+}
+
+.MagazineStyle .FeatureTitle h1 {
+	font-size: 36px;
+	line-height: 36px;
+	color: #3b6689;
+	font-family: "Segoe UI", Verdana, Sans-Serif;
+	text-transform: none;
+	font-variant: normal;
+	font-style: normal;
+	margin-bottom: 6px;
+}
+
+.MagazineStyle .FeatureTitle h3 {
+	font-weight: normal;
+	font-size: 14px;
+	color: #323e58;
+	font-family: "Segoe UI", Verdana, Sans-Serif;
+	padding-bottom: 6px;
+	margin-bottom: 6px;
+}
+
+.MagazineStyle ul li
+{
+	font-weight: normal;
+	color: #323e58;
+	list-style-type:square;
+	font-family: "Segoe UI", Arial;
+	font-size: 11px;
+}
+
+.MagazineStyle h2
+{
+	font-weight: bold;
+	font-family: "Segoe UI", Arial;
+	font-size: 16px;
+	font-style: normal;
+	font-variant: normal;
+	text-transform: none;
+	color: #3b6689;
+	margin-top: 3px;
+	padding-bottom:7px;
+}
+
+
+
+.coverTD {text-align:center;width:33%} 
+.featureDiv {margin-bottom: 8px; margin-top: 8px;} 
+.authorColor {color:#323e58;}
+.spanCodeChm {margin-right: 5px; margin-bottom: 6px;} 
+.RightMargin12px {margin-right: 12px;} 
+.BottomMargin6px {margin-bottom: 6px;}
+.columnTable{border:0px; width:80%;} 
+.columnCell{padding:2px; margin:5px; width:33%; } 
+.borderCollapse {border:0px; padding:0px; border-collapse: collapse; width:100%;}
+.borderCollapseWithBorder {border:1px; padding:2px; border-collapse: collapse; width:100%;}
+.td33 {width:33%}  
+.chmHeaderTD{background-color: #dd7c3b; color: #ffffff; font-weight:bold;padding:10px;margin:0px;border:1px;}
+.edeef6 {background-color:#edeef6} 
+.padleft20 {padding-left:20px;} 
+.figmargin{margin: 5px 0px 5px 0px;} 
+.familiar{background-color:#333333; color:#000000}
+.msdnlevel {color:#ffffff;font-weight:bold;} 
+.superscript {  font-size:70%;
+  position:relative;
+  bottom: 0.5em;
+}
+.subscript {  font-size:70%;
+  position:relative;
+  bottom: -0.5em;
+}
+.charttable
+{
+	border-collapse:collapse;
+	border: 1px solid #C0C0C0;
+	width: 100%;
+}
+
+.charttable td
+{
+	border-collapse:collapse;
+	border: 1px solid #C0C0C0;
+	padding:3px;
+}
+
+.charttable th
+{
+	border-collapse:collapse;
+	border: 1px solid #C0C0C0;
+	padding:3px;
+}
+.clsBlue {color:blue;}
+.clsRed {color:red;}
+.clsGreen {color:green;}
+.clsInfo { font-size: 90%;}
+.clsSmall {font-size: 90%;}
+.inlinesidebar {width:400px;} 
+.solidLine {border-top-style: solid; padding-top:5px; padding-bottom:3px; border-top-width: 1px; border-top-color: #000000; }
+.HeaderParagraph { font-family: "Segoe UI", Arial; font-size: 12px; font-weight: normal;font-style: normal;font-variant: normal;text-transform: none;color: #333333;text-decoration: none;margin-top:1px;margin-bottom:12px;}
+.HeaderLinks {
+	font-family: "Segoe UI", Arial;
+	color: #3b6689;
+	font-size: 14px;
+	font-weight: bold;
+	font-style: normal;
+	font-variant: normal;
+	text-transform: none;
+	text-decoration: none;
+}
+
+.ArticleNormalPara
+{
+	font-family: "Segoe UI", Verdana, Arial;
+	font-size: 14px;
+	font-weight: normal;
+	font-style: normal;
+	font-variant: normal;
+	text-transform: none;
+	padding-bottom: 7px;
+	line-height: 18px;
+	color: #333333;
+}
+
+.ArticleQA
+{
+
+}
+
+.ArticleNormalPara .clsQA
+{
+	font-size:150%;
+	font-weight:bold;
+	color: #cc3300;
+	padding-right:10px;
+}
+
+.clsQA
+{
+	font-size:150%;
+	font-weight:bold;
+	color: #cc3300;
+}
+
+.ArticleQA:first-letter
+{
+	font-size:150%;
+	font-weight:bold;
+	color: #cc3300;
+}
+
+.clsIntro
+{
+	font-family: Verdana, Arial;
+	font-size: 20px;
+	font-weight: normal;
+	font-style: normal;
+	font-variant: normal;
+	text-transform: none;
+	padding-bottom: 7px;
+	line-height: 26px;
+	color: #333333;
+}
+
+.clsNoIndent
+{
+	font-family: Verdana, Arial;
+	font-size: 12px;
+	font-weight: normal;
+	font-style: normal;
+	font-variant: normal;
+	text-transform: none;
+	padding-bottom: 7px;
+	line-height: 16px;
+	color: #333333;
+}
+
+.ArticleTypeTitle {
+	font-weight: bold;
+	font-family: "Segoe UI", Arial;
+	font-size: 16px;
+	font-style: normal;
+	font-variant: normal;
+	text-transform: none;
+	color: #3b6689;
+	margin-top: 3px;
+	padding-bottom:7px;
+}
+.ArticleInlineTitle {
+	font-weight: bold;
+	font-family: "Segoe UI", Arial;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	text-transform: none;
+	color: #323e58;
+}
+.ToolboxHeader {
+	font-weight: bold;
+	font-family: "Segoe UI", Arial;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	text-transform: none;
+	color: #ffffff;
+	background-color: #323e58;
+	padding:2px;
+}
+.ArticleTypeTitleHeader {
+	font-weight: bold;
+	font-family: "Segoe UI", Arial;
+	font-size: 16px;
+	font-style: normal;
+	font-variant: normal;
+	text-transform: none;
+	color: #3b6689;
+	margin-top: 3px;
+}
+.ArticleHeadlineLink {
+	font-family: "Segoe UI", Arial;
+	color: #3b6689;
+	font-size: 14px;
+	font-weight: bold;
+	font-style: normal;
+	font-variant: normal;
+	text-transform: none;
+	text-decoration: none;
+}
+.ArticleHeadlineText {
+	font-family: "Segoe UI", Arial;
+	font-size: 14px;
+	font-weight: normal;
+	font-style: normal;
+	font-variant: normal;
+	text-transform: none;
+	color: #323e58;
+	text-decoration: none;
+}
+.ColumnHeadlineLink {
+	font-weight: bold;
+	font-family: "Segoe UI", Arial;
+	font-size: 12px;
+	font-style: normal;
+	font-variant: normal;
+	text-transform: none;
+	color: #323e58;
+	text-decoration: none;
+	padding-top: 4px;
+}
+.ColumnNavList li {
+	display: inline;
+	list-style-type: none;
+	padding-right: 20px;
+}
+.HeaderIssueTitle {
+	font-weight: bold;
+	font-size: 24px;
+	line-height:20px;
+	color: #3b6689;
+	font-family: "Segoe UI", Arial;
+	text-transform:uppercase;
+	padding-bottom:5px;
+}
+.HeaderDescription {
+	font-weight: normal;
+	font-size: 16px;
+	color: #3b6689;
+	font-family: "Segoe UI", Arial;
+}
+.ArticleListingContainer li
+{
+	margin-bottom: 5px;
+	color: #3b6689;
+	list-style-type: square;
+}
+.FeatureSmallHead
+{
+	font-family: "Segoe UI", Verdana, Sans-Serif;
+	font-size: 20px;
+	font-style: normal;
+	font-variant: normal;
+	color: #5b6871;
+	padding-bottom:10px;
+
+	text-decoration: none;
+
+	padding-top:35px;
+
+}
+.FeatureHeadline 
+{
+	display:block;
+	font-weight: normal;
+	font-family: "Segoe UI", Arial;
+	font-size: 36px;
+	font-style: normal;
+	font-variant: normal;
+	color: #3b6689;
+	text-decoration: none;
+	border-top-style: solid;
+	border-top-width: 12px;
+	border-top-color: #5b6871;
+	background-image: url('/Platform/MasterPages/TechNetMagazine2/logo_TechNetMagazine.gif');
+	background-position: right bottom;
+	background-repeat: no-repeat;
+	margin-bottom: 4px;
+	line-height:36px;
+	padding-top:12px;
+padding-right: 200px;
+	white-space:normal;
+}
+.FeatureByLine {
+	font-weight: normal;
+	font-size: 14px;
+	color: #323e58;
+	font-family: "Segoe UI", Arial;
+	margin-top:5px;
+}
+.FeatureAtAGlance {
+	font-weight: bold;
+	font-size: 14px;
+	color: #3b6689;
+	font-family: "Segoe UI", Arial;
+	text-transform: uppercase;
+	margin-top:10px;
+	margin-bottom:0px;
+}
+.ListingBullet
+{
+	font-weight: normal;
+	color: #323e58;
+	list-style-type:square;
+	font-family: "Segoe UI", Arial;
+	font-size: 14px;
+}
+LI.ListingBullet
+{
+	font-weight: normal;
+	color: #323e58;
+	list-style-type:square;
+	font-family: "Segoe UI", Arial;
+	font-size: 14px;
+}
+.SidebarHeadline
+{
+	font-weight: normal;
+	font-size: 18px;
+	color: #323e58;
+	font-family: "Segoe UI", Arial;	
+}
+.SidebarContainer
+{
+		
+	margin: 20px 0px 20px 10px;
+	padding: 10px 50px 10px 10px;
+	color: #3b6689;
+	border-bottom:solid 12px #5B6871;
+	border-top:solid 12px #5B6871;
+}
+
+.SidebarContainerWide
+{
+	margin: 20px 0px 20px 10px;
+	padding: 10px 50px 10px 10px;
+	color: #3b6689;
+	border-bottom:solid 12px #5B6871;
+	border-top:solid 12px #5B6871;
+}
+
+.ColumnSmallHead
+{
+	display:inline-block;
+	
+	font-weight: normal;
+	font-family: "Segoe UI", Verdana, Sans-Serif;
+	font-size: 20px;
+	font-style: normal;
+	font-variant: normal;
+	color: #323e58;
+	text-decoration: none;
+	line-height:30px;
+	margin-bottom: 8px;
+
+}
+.ArticleImageSpacer
+{
+	padding-top:15px;
+}
+
+.ArticleImageCaptionText
+{
+	font-weight: normal;
+	font-size: 14px;
+	color: #26252A;
+	font-family: "Segoe UI", Arial;
+	padding-top:7px;
+	padding-bottom:10px;
+	margin:0px;
+}
+.AuthorBio {
+	font-family: "Segoe UI", Arial;
+	font-size: 14px;
+	color: #323e58;
+}
+.ContentsTypeTitle {
+	font-weight: bold;
+	font-family: "Segoe UI", Arial;
+	font-size: 12px;
+	font-style: normal;
+	font-variant: normal;
+	text-transform: none;
+	color: #323e58;
+	text-decoration: none;
+	padding-top: 4px;
+}
+.ContentsTypeSubTitle {
+	font-family: "Segoe UI", Arial;
+	font-size: 12px;
+	font-style: normal;
+	font-variant: normal;
+	text-transform: none;
+	color: #323e58;
+	text-decoration: none;
+	padding-top: 4px;
+}
+.ContentsImageSpacer {
+	float: left; padding-right: 12px; padding-top: 12px;
+}
+
+a img 
+{
+border-top-width: medium;
+border-right-width: medium;
+border-bottom-width: medium;
+border-left-width: medium;
+border-top-style: none;
+border-right-style: none;
+border-bottom-style: none;
+border-left-style: none;
+border-top-color: -moz-use-text-color;
+border-right-color: -moz-use-text-color;
+border-bottom-color: -moz-use-text-color;
+border-left-color: -moz-use-text-color;
+}
+
+
+/* machine translation side-by-side view*/
+.sentence
+{
+}
+
+.alternates
+{
+      background-color: #CCFFCC;
+}
+
+.sentenceEditing
+{
+      background-color: #fff374;
+}
+
+.sentenceChanged
+{
+      color: #006600;
+      background-color: #fff;
+}
+
+.sentenceHighlight 
+{
+      color: #000;
+      background-color: #fc9;
+}
+/* end side-by-side */
+

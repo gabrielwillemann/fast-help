@@ -1,0 +1,1 @@
+$ rvm gemset empty GEMSET_NAME

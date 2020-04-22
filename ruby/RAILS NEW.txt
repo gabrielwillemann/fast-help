@@ -1,0 +1,1 @@
+rails new APPNAME --api --database=postgresql --skip-action-mailer --skip-action-mailbox --skip-active-storage --skip-test --skip-action-cable

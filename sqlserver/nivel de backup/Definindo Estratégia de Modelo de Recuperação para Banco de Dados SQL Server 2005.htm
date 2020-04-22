@@ -1,0 +1,759 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0113)http://www.devmedia.com.br/definindo-estrategia-de-modelo-de-recuperacao-para-banco-de-dados-sql-server-2005/6458 -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br"><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005</title>
+<link href="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/css" rel="stylesheet" type="text/css">
+
+
+<link href="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/style_compress.css" rel="stylesheet" type="text/css">
+
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+
+<meta name="description" content="SQL Magazine - Veja neste artigo o que você tem de fazer para manter o seu servidor SQL Server disponível tanto quanto possível e recuperá-lo em caso de um desastre.
+"> 
+
+<link rel="canonical" href="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005.htm">
+
+<link href="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/estilo.min.css" rel="stylesheet" type="text/css">
+<script async="" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/v2"></script><script src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/cb=gapi.loaded_1" async=""></script><script async="" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/bjGqbWII8r4A2pacwqm_6r.js"></script><script src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/cb=gapi.loaded_0" async=""></script><script async="" type="text/javascript" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/ti.js"></script><script type="text/javascript" async="" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/ga.js"></script><script id="facebook-jssdk" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/all.js"></script><script type="text/javascript" async="" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/plusone.js" gapi_processed="true"></script><script type="text/javascript" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/jquery.min.js"></script>
+<script type="text/javascript" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/includescript.min.js"></script>
+<!--[if lte IE 8]><style>
+#nav li ul{border:1px solid #DADADA;}
+</style><![endif]-->
+<script type="text/javascript">
+(function() {
+var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+po.src = 'https://apis.google.com/js/plusone.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+})();
+
+(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id;js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=145393072270566";fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));
+$.include("http://www.devmedia.com.br/includeb/topo_center.js");
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-15997918-1']);
+  _gaq.push(['_setDomainName', '.devmedia.com.br']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script><script type="text/javascript" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/topo_center.js"></script>
+
+<script type="text/javascript" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/article.js"></script>
+
+<script type="text/javascript" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/plusone.js" gapi_processed="true"></script>
+
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "7fba8974-a42c-4d1b-96a9-4249a82ce8c0", onhover: false}); </script>	
+
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=3">
+
+<style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}
+.fb_invisible{display:none}
+.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}
+.fb_reset > div{overflow:hidden}
+.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}
+.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}
+.fb_dialog_content{background:#fff;color:#333}
+.fb_dialog_close_icon{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px;top:8px\9;right:7px\9}
+.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}
+.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}
+.fb_dialog_close_icon:hover{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}
+.fb_dialog_close_icon:active{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}
+.fb_dialog_loader{background-color:#f2f2f2;border:1px solid #606060;font-size:24px;padding:20px}
+.fb_dialog_top_left,
+.fb_dialog_top_right,
+.fb_dialog_bottom_left,
+.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}
+.fb_dialog_top_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}
+.fb_dialog_top_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}
+.fb_dialog_bottom_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}
+.fb_dialog_bottom_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right,
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right{width:10px;height:100%}
+.fb_dialog_vert_left{margin-left:-10px}
+.fb_dialog_vert_right{right:0;margin-right:-10px}
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{width:100%;height:10px}
+.fb_dialog_horiz_top{margin-top:-10px}
+.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}
+.fb_dialog_iframe{line-height:0}
+.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3b5998;color:#fff;font-size:14px;font-weight:bold;margin:0}
+.fb_dialog_content .dialog_title > span{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif)
+no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}
+body.fb_hidden{-webkit-transform:none;height:100%;margin:0;left:-10000px;overflow:visible;position:absolute;top:-10000px;width:100%
+}
+.fb_dialog.fb_dialog_mobile.loading{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif)
+white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}
+.fb_dialog.fb_dialog_mobile.loading.centered{max-height:590px;min-height:590px;max-width:500px;min-width:500px}
+#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}
+#fb-root #fb_dialog_ipad_overlay.hidden{display:none}
+.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}
+.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0 0, 0 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}
+.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%
+}
+.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px
+}
+.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px
+}
+.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0 0, 0 100%, from(#4966A6),
+color-stop(0.5, #355492), to(#2A4887));border:1px solid #29447e;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset,
+rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}
+.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}
+.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}
+.fb_dialog_content .dialog_content{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}
+.fb_dialog_content .dialog_footer{background:#f2f2f2;border:1px solid #555;border-top-color:#ccc;height:40px}
+#fb_dialog_loader_close{float:left}
+.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}
+.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}
+.fb_iframe_widget{display:inline-block;position:relative}
+.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}
+.fb_iframe_widget iframe{position:absolute}
+.fb_iframe_widget_lift{z-index:1}
+.fb_hide_iframes iframe{position:relative;left:-10000px}
+.fb_iframe_widget_loader{position:relative;display:inline-block}
+.fb_iframe_widget_fluid{display:inline}
+.fb_iframe_widget_fluid span{width:100%}
+.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}
+.fb_iframe_widget_loader .FB_Loader{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fb_connect_bar_container div,
+.fb_connect_bar_container span,
+.fb_connect_bar_container a,
+.fb_connect_bar_container img,
+.fb_connect_bar_container strong{background:none;border-spacing:0;border:0;direction:ltr;font-style:normal;font-variant:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal;vertical-align:baseline}
+.fb_connect_bar_container{position:fixed;left:0 !important;right:0 !important;height:42px !important;padding:0 25px !important;margin:0 !important;vertical-align:middle !important;border-bottom:1px solid #333 !important;background:#3b5998 !important;z-index:99999999 !important;overflow:hidden !important}
+.fb_connect_bar_container_ie6{position:absolute;top:expression(document.compatMode=="CSS1Compat"? document.documentElement.scrollTop+"px":body.scrollTop+"px")}
+.fb_connect_bar{position:relative;margin:auto;height:100%;width:100%;padding:6px 0 0 0 !important;background:none;color:#fff !important;font-family:"lucida grande", tahoma, verdana, arial, sans-serif !important;font-size:13px !important;font-style:normal !important;font-variant:normal !important;font-weight:normal !important;letter-spacing:normal !important;line-height:1 !important;text-decoration:none !important;text-indent:0 !important;text-shadow:none !important;text-transform:none !important;white-space:normal !important;word-spacing:normal !important}
+.fb_connect_bar a:hover{color:#fff}
+.fb_connect_bar .fb_profile img{height:30px;width:30px;vertical-align:middle;margin:0 6px 5px 0}
+.fb_connect_bar div a,
+.fb_connect_bar span,
+.fb_connect_bar span a{color:#bac6da;font-size:11px;text-decoration:none}
+.fb_connect_bar .fb_buttons{float:right;margin-top:7px}
+.fb_edge_widget_with_comment{position:relative;*z-index:1000}
+.fb_edge_widget_with_comment span.fb_edge_comment_widget{position:absolute}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget{z-index:1}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget .FB_Loader{left:0;top:1px;margin-top:6px;margin-left:0;background-position:50% 50%;background-color:#fff;height:150px;width:394px;border:1px #666 solid;border-bottom:2px solid #283e6c;z-index:1}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget.dark .FB_Loader{background-color:#000;border-bottom:2px solid #ccc}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget.siderender
+.FB_Loader{margin-top:0}
+.fbpluginrecommendationsbarleft,
+.fbpluginrecommendationsbarright{position:fixed !important;bottom:0;z-index:999}
+.fbpluginrecommendationsbarleft{left:10px}
+.fbpluginrecommendationsbarright{right:10px}</style><script type="text/javascript" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/getAppDefault.esi"></script><script type="text/javascript" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/checkOAuth.esi"></script><link rel="stylesheet" type="text/css" href="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/buttons.20a85a6a67053717023e8d12a9dba430.css"><script type="text/javascript" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/getCount2.php"></script><script type="text/javascript" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/plusone.js" gapi_processed="true"></script></head>
+
+<body>
+
+
+<style>
+@media only screen and (max-width: 1000px){
+.top_BG_2,.top_BG_3,.top_busca_div1,.facebook-box{
+display:none;
+}
+.topALL{height:auto;}
+.top_BG_div1,.rodape_div1,.rodape_div2{width:90%;height:auto;}
+}
+</style>
+<div id="topoc"><div id="topoc1">
+<div class="topALL">
+	
+	<div class="top_BG_1">
+		<div class="top_BG_div1">
+			<a href="http://www.devmedia.com.br/" style="position:absolute; top:23px; left:10px;"><img border="0" width="250" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/logo-devmedia.png" alt="DevMedia - asp.net, Java, Delphi, SQL e web Design, tudo em um só lugar!" title="DevMedia - asp.net, Java, Delphi, SQL e web Design, tudo em um só lugar!"></a>
+			
+			<div class="top_busca_div1">
+				<form id="search-form" method="GET" action="http://www.devmedia.com.br/busca/">
+					<label id="lblsearch" for="pesquisar" style="display: none;">Pesquisar</label>
+					<input type="text" id="pesquisar" name="txtsearch" onblur="(this.value.length&gt;0) ? document.getElementById(&#39;lblsearch&#39;).style.display=&#39;none&#39; : document.getElementById(&#39;lblsearch&#39;).style.display=&#39;block&#39;;" onfocus="document.getElementById(&#39;lblsearch&#39;).style.display=&#39;none&#39;;">
+					<input type="submit" value="">
+				</form>
+			</div>
+		</div>
+	</div>
+<div class="top_BG_2">
+<div class="top_BG_div1">
+<ul class="nav">
+<li><a href="http://www.devmedia.com.br/canais/" rel="nofollow">Tecnologias<span></span></a>
+<ul> 
+<li><a href="http://www.devmedia.com.br/canais/">Todo conteúdo DevMedia</a></li>
+<li><a href="http://www.devmedia.com.br/front-end-web">Front-end web</a></li>
+<li><a href="http://www.devmedia.com.br/java">Java</a></li>
+<li><a href="http://www.devmedia.com.br/dotnet">.net</a></li>
+<li><a href="http://www.devmedia.com.br/banco-de-dados">Banco de dados</a></li>
+<li><a href="http://www.devmedia.com.br/mobile">Mobile</a></li>
+<li><a href="http://www.devmedia.com.br/php">PHP</a></li>
+<li><a href="http://www.devmedia.com.br/engenharia-de-software">Engenharia de Software</a></li>
+<li><a href="http://www.devmedia.com.br/infraestrutura">Infraestrutura</a></li>
+<li><a href="http://www.devmedia.com.br/delphi">Delphi</a></li>
+</ul>
+</li>
+<li><a href="http://www.devmedia.com.br/assgold" rel="nofollow">Revistas<span></span></a>
+<ul>
+<li><a href="http://www.devmedia.com.br/assgold">Todas as revistas</a></li>
+<li><a href="http://www.devmedia.com.br/revista-java-magazine">Java Magazine</a></li>
+<li><a href="http://www.devmedia.com.br/revista-dotnet-magazine">.net Magazine</a></li>
+<li><a href="http://www.devmedia.com.br/revista-easy-java-magazine">easy Java Magazine</a></li>
+<li><a href="http://www.devmedia.com.br/revista-easy-dotnet-magazine">easy .net Magazine</a></li>
+<li><a href="http://www.devmedia.com.br/revista-mobile-magazine">Mobile magazine</a></li>
+<li><a href="http://www.devmedia.com.br/revista-sql-magazine">SQL Magazine</a></li>
+<li><a href="http://www.devmedia.com.br/revista-engenharia-de-software-magazine">Engenharia de Software</a></li>
+<li><a href="http://www.devmedia.com.br/revista-infra-magazine">Infra Magazine</a></li>
+<li><a href="http://www.devmedia.com.br/revista-clubedelphi">ClubeDelphi</a></li>
+</ul> 
+</li>
+<li><a href="http://www.devmedia.com.br/cursos/" rel="nofollow">Cursos<span></span></a>
+<ul>
+<li><a href="http://www.devmedia.com.br/cursos/">Todos os cursos online</a></li>
+<li><a href="http://www.devmedia.com.br/cursos/front-end-web">Cursos de front-end web</a></li>
+<li><a href="http://www.devmedia.com.br/cursos/java">Cursos de Java</a></li>
+<li><a href="http://www.devmedia.com.br/cursos/net">Cursos de .net</a></li>
+<li><a href="http://www.devmedia.com.br/cursos/banco-de-dados">Cursos de  Banco de dados</a></li>
+<li><a href="http://www.devmedia.com.br/cursos/engenharia-de-software">Cursos de Engenharia de Software</a></li>
+<li><a href="http://www.devmedia.com.br/cursos/php">Cursos de PHP</a></li>
+<li><a href="http://www.devmedia.com.br/cursos/mobile">Cursos de Mobile</a></li>
+<li><a href="http://www.devmedia.com.br/cursos/infraestrutura">Cursos de Infraestrutura</a></li>
+<li><a href="http://www.devmedia.com.br/cursos/delphi">Cursos de Delphi</a></li>
+<li><a href="http://www.devmedia.com.br/cursos/automacao">Cursos de Automação / NFe / Paf-ecf</a></li>
+<li><a href="http://www.devmedia.com.br/cursos/formacoes/">Formações completas</a></li>
+</ul>
+</li>
+<li><a href="http://www.devmedia.com.br/pocket-video">Pocket videos</a></li>
+<li><a href="http://www.devmedia.com.br/devware/">DevWare</a></li>
+<li><a href="http://www.devmedia.com.br/forum/">Fórum</a></li>
+<li><a href="http://www.devmedia.com.br/definindo-estrategia-de-modelo-de-recuperacao-para-banco-de-dados-sql-server-2005/6458#">Serviços<span></span></a>
+<ul>
+<li><a href="http://www.devmedia.com.br/creditos">Sistema de Créditos</a></li>
+<li><a href="http://www.devmedia.com.br/player" rel="nofollow">DevMedia Player</a></li>
+<li><a href="http://www.devmedia.com.br/ranking/" rel="nofollow">Ranking</a></li>
+<li><a href="http://www.devmedia.com.br/join" rel="nofollow">Cadastre-se</a></li>
+<li><a href="http://www.devmedia.com.br/feed" rel="nofollow">RSS</a></li>
+<li><a href="http://www.devmedia.com.br/login/login.asp" rel="nofollow">Login</a></li>
+<li><a href="http://www.devmedia.com.br/whatsnew/?id=1">O que há de novo</a></li>
+<li><a href="http://www.devmedia.com.br/mancad" rel="nofollow">Atendimento</a></li>
+<li><a href="http://www.devmedia.com.br/faq-entrega-de-revistas/15682" rel="nofollow">FAQ Entrega de revistas</a></li>
+<li><a href="http://www.devmedia.com.br/video-aulas-faq/4668" rel="nofollow">FAQ Vídeo aulas</a></li>
+<li><a href="http://www.devmedia.com.br/como-gerenciar-os-posts-lidos-assistidos-no-portal-devmedia/25840" rel="nofollow">Gerenciando o que foi lido</a></li>
+</ul>
+</li>
+<li><a href="http://www.devmedia.com.br/seja-um-autor-devmedia/28103">Publicar</a></li>
+<li><a href="http://www.devmedia.com.br/mvp/" rel="nofollow">Comprar<span></span></a>
+<ul>
+<li><a href="http://www.devmedia.com.br/mvp/">Assinatura MVP</a></li>
+<li><a href="http://www.devmedia.com.br/shop/">Loja Virtual</a></li>
+<li><a href="http://www.devmedia.com.br/creditos/?p=6">Compre Créditos</a></li>
+<li><a href="http://www.devmedia.com.br/assine/#assine-revistas">Assine revistas</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+	<div class="top_BG_3">
+		
+		<div class="top_BG_div1">
+			<div class="top_menu_div1">
+				<div class="top_padding" style="padding-left:21px;">
+				
+					
+					<div class="top_menu_div4" style="padding-top:7px; font-size:12px;">Bem vindo a DevMedia!</div>
+					
+					<div class="top_menu_div4" style="padding-top:3px;">
+						<form name="loginForm" method="POST" action="http://www.devmedia.com.br/login/login.asp">
+							<div style="float:left">
+								
+								LOGIN: <input type="text" name="usuario" class="top_login_senha" onkeydown="if(event.keyCode==13){document.loginForm.submit();}">&nbsp; &nbsp; 
+								
+								SENHA: <input type="password" name="senha" class="top_login_senha" onkeydown="if(event.keyCode==13){document.loginForm.submit();}">
+							</div>
+							<input type="hidden" name="ac" value="1">
+							<!--[if lte IE 7]><style>#imglogar{margin-top:2px;}</style><![endif]-->
+							<input type="image" id="imglogar" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/cinza-ok.png" alt="Logar" title="Logar">
+						</form>
+					</div>
+					
+					<div class="top_menu_div4" style="padding-top:8px;">
+						<a href="http://www.devmedia.com.br/cadastro/lembrarcadastro.asp">Esqueci minha senha</a>&nbsp; &nbsp; &nbsp; 
+						<a href="http://www.devmedia.com.br/join">Cadastre-se</a>
+					</div>
+					
+					<div class="top_menu_div3" style="padding:8px 0px 0px 0px; font-family:Verdana; font-size:10px; font-weight:bold;">
+					
+						<div style="float:left;margin:-2px 0px 0px 43px;">
+							<a href="https://plus.google.com/101753743720604160232?prsrc=3" style="float:left;margin-right:5px;text-decoration:none;" target="_blank"><img src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/gplus-16.png" alt="" style="border:0;width:16px;height:16px;"></a><a target="_blank" rel="nofollow" href="http://www.facebook.com/pages/DevMedia/144522665592650"><div class="facebook" alt="DevMedia Facebook" title="DevMedia Facebook"></div></a>&nbsp;<a href="http://www.devmedia.com.br/feed/"><div class="feeds" alt="Assine nossos Feeds (RSS)" title="Assine nossos Feeds (RSS)"></div></a>&nbsp;<a target="_blank" rel="nofollow" href="http://twitter.com/devmedia"><div class="twitter" alt="Siga-nos no twitter" title="Siga-nos no twitter"></div></a>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	
+</div>
+	
+
+<div id="main">	
+
+
+
+<a name="boxvalorcreditos"></a>
+			<div id="div_corpo_post">	 
+			
+			
+			<div id="barra_botoes" style="margin-top:10px;padding-bottom:6px;">
+			
+						   
+			   <font size="2"><a href="http://www.devmedia.com.br/favorite/addfavorite.asp?comp=6458" rel="nofollow">post favorito</a></font>&nbsp;&nbsp;&nbsp;&nbsp;
+
+			   <font size="2"><a href="http://www.devmedia.com.br/definindo-estrategia-de-modelo-de-recuperacao-para-banco-de-dados-sql-server-2005/6458#comentariosArtigo" rel="nofollow">comentários</a></font>
+			   			
+			</div>		
+								
+		
+			<div id="div_conteudo_post">		
+			
+			
+			<h1 class="normal">Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005</h1>
+			
+			
+
+				
+			<div id="div_descricao" style="margin-top:30px;">					
+			<h2 class="normal">Veja neste artigo o que você tem de fazer para manter o seu servidor SQL Server disponível tanto quanto possível e recuperá-lo em caso de um desastre.
+</h2>				
+			</div>
+			
+          					
+			<div style="margin-top:50px;margin-left:0px;width:100%;border-top: 1px solid #CACACA;"></div>
+			
+			<div id="div_barrasocial" style="border-bottom: 1px solid #CACACA;background-color:#F8F8F8;padding-top:10px;padding-left:5px;padding-bottom:10px;"> 
+			
+			<div id="box_social">		
+			  <span class="st_twitter_hcount" displaytext="Tweet" st_processed="yes"><span style="text-decoration:none;color:#000000;display:inline-block;cursor:pointer;" class="stButton"><span><span class="stMainServices st-twitter-counter" style="background-image: url(http://w.sharethis.com/images/twitter_counter.png);">&nbsp;<img src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/check-big.png" style="position: absolute; top: -7px; right: -7px; width: 19px; height: 19px; max-width: 19px; max-height: 19px; display: none;"></span><span class="stArrow"><span class="stButton_gradient stHBubble"><span class="stBubble_hcount"></span></span></span></span></span></span>
+			  <span class="st_plusone_hcount" displaytext="Tweet2" st_processed="yes"><div style="display:inline-block;overflow:hidden;line-height:0px;position:relative;vertical-align:middle;bottom:0px;width:75px; height:21px;">&nbsp;<div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background-color: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 90px; height: 20px; background-position: initial initial; background-repeat: initial initial;"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 90px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" width="100%" id="I0_1380220102550" name="I0_1380220102550" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/fastbutton.htm" data-gapiattached="true" title="+1"></iframe></div></div></span>
+			  <span class="st_fblike_hcount" displaytext="Facebook" st_processed="yes"><span style="text-decoration:none;color:#000000;display:inline-block;cursor:pointer;position:relative;margin:3px 3px 0;padding:0px;font-size:11px;line-height:0px;vertical-align:bottom;overflow:visible;"><div data-action="" data-send="false" data-layout="button_count" data-show-faces="false" class="fb-like fb_edge_widget_with_comment fb_iframe_widget" data-href="http://www.devmedia.com.br/definindo-estrategia-de-modelo-de-recuperacao-para-banco-de-dados-sql-server-2005/6458" fb-xfbml-state="rendered"><span style="height: 20px; width: 79px;"><iframe id="f120604fe8" name="f4e215088" scrolling="no" title="Like this content on Facebook." class="fb_ltr" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/like.htm" style="border: none; overflow: hidden; height: 20px; width: 79px;"></iframe></span></div></span></span>
+			</div>			
+			<div style="margin-left:50px;float:left;">&nbsp;</div>
+			<span id="ja_votou" style="display:none">0</span>
+
+<div id="box_fb_comp">			
+	<div style="float:left;">
+
+	
+	<a class="linkfeedback" href="http://www.devmedia.com.br/definindo-estrategia-de-modelo-de-recuperacao-para-banco-de-dados-sql-server-2005/6458#" onclick="document.getElementById(&#39;div_feedback_post&#39;).style.display=&#39;block&#39;;"><img src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/handUp.png"><span style="font-size:1.4em;font-weight:600;color:#0127BE;">&nbsp;Gostei</span>
+	<span style="margin-left:4px;font-size:1.4em;color:#0127BE;">(1)</span></a>
+
+	
+	
+	</div>
+
+	<div style="margin-left:40px;float:left;">
+	
+			
+	<a class="linkfeedback" href="http://www.devmedia.com.br/definindo-estrategia-de-modelo-de-recuperacao-para-banco-de-dados-sql-server-2005/6458#" onclick="document.getElementById(&#39;div_feedback_post&#39;).style.display=&#39;block&#39;;">
+	<img src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/handDown_peq2.png">
+	
+	<span style="font-size:1.2em;color:#787878;"> (0)</span></a></div>
+	
+	
+	<div style="clear:both;"></div>
+</div>
+	
+			
+			<div style="clear:both;"></div>
+		
+			</div>
+				<a name="link_voto_negativo"></a>
+		<div id="box_voto_negativo">
+		<a onclick="document.getElementById(&#39;box_voto_negativo&#39;).style.display=&#39;none&#39;;">[fechar]</a>		
+		<p style="font-size:1.35em;">Você não gostou da <b>qualidade</b> deste conteúdo?</p>
+		<p>(opcional) Você gostaria de comentar o que não lhe agradou?</p>		
+		<form name="form_voto_negativo" method="post" action="http://www.devmedia.com.br/articles/grava_fb_negativo.asp">
+		  <textarea name="texto_voto" cols="40" rows="5"></textarea>
+		  <input type="hidden" name="idcomp" value="6458">		  				
+		<div style="color:white;background-color:grey;border-color:black;border-style:solid;border-width:1px;margin-top:20px;padding:10px;width:220px;">
+		<a href="http://www.devmedia.com.br/definindo-estrategia-de-modelo-de-recuperacao-para-banco-de-dados-sql-server-2005/6458#" style="color:white;" onclick="document.forms[&#39;form_voto_negativo&#39;].submit(); return false;">Sim, confirmo meu voto negativo</a>
+		</div>		
+		</form>
+		</div>
+				<div style="height:20px;"></div>			
+				<div id="div_conteudo">
+					<div class="p_espacado">
+					
+					
+						<span class="span_conteudo_post">
+					<p class="MsoBodyTextIndent3" margin:="" 0cm="" 0pt;="" text-indent:="" 0cm;="" text-align:="" left"="" align="left"><span font-size:="" 10pt;="" font-family:="" verdana"=""><strong><font size="5"></font></strong></span></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" text-indent:="" 35.45pt;="" mso-layout-grid-align:="" none"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">&nbsp;</span></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">Uma estratégia para cópia de segurança é apenas um plano que determina quando usar cada tipo de backup. Uma definição importante para esta política é o modelo de recuperação do banco de dados.</span></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" text-indent:="" 35.45pt;="" mso-layout-grid-align:="" none"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">&nbsp;</span></p>
+<p class="MsoBodyTextIndent" margin:="" 0cm="" 0pt;="" text-indent:="" 0cm;="" text-align:="" left"="" align="left"><span font-size:="" 10pt;="" font-family:="" verdana"="">De fato, se o servidor SQL Server estiver indisponível, os seus usuários não poderão fazer suas atividades normalmente. Isto resulta em transtornos para os clientes e produtividade comprometida das aplicações. Como administrador de banco de dados (DBA), é sua responsabilidade assegurar que isto não aconteça à sua companhia. Em outras palavras, você precisa garantir que o servidor SQL Server esteja disponível com mínimo ou nenhum tempo ocioso.<span mso-spacerun:="" yes"="">&nbsp; </span>Naturalmente que desastres acontecerão, e quando eles surgirem, é seu papel recuperar o servidor SQL Server o mais rápido possível.</span></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" text-indent:="" 35.45pt;="" mso-layout-grid-align:="" none"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">&nbsp;</span></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">Apresentaremos uma série de artigos que visa<span color:="" black"=""> </span>cobrir o que você tem de fazer para manter o seu servidor SQL Server disponível tanto quanto possível e recuperá-lo em caso de um desastre.</span></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">&nbsp;</span></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><b mso-bidi-font-weight:="" normal"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">Selecionado e Configurando o<span color:="" black"=""> </span>Modelo de Recuperação</span></b></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">&nbsp;</span></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">Antes de você começar a realizar cópias de seus bancos de dados e logs de transações, você precisa entender e configurar o modelo de recuperação que será usado para seu banco de dados.<span color:="" black"=""> </span>Conhecer qual modelo que você deve utilizar,<span color:="" black"=""> </span>afeta diretamente em que velocidade as suas cópias serão restauradas de maneira eficiente, após a ocorrência de algum incidente. O SQL Server precisa saber antecipadamente que tipos de backups você planeja realizar em um banco de dados e qual modelo de recuperação escolhido. O modelo de recuperação padrão que um banco de dados utiliza é o modelo de recuperação <b mso-bidi-font-weight:="" normal"="">FULL</b>. Você<span color:="" black"=""> </span>pode selecionar um dos três modelos de recuperação, de acordo com a sua estratégia de backup, que são:<span color:="" black"=""></span></span></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><span font-size:="" 10pt;="" color:="" black;="" font-family:="" verdana"="">&nbsp;</span></p>
+<h1 margin:="" 0cm="" 0pt"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">SIMPLE</span></h1>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">&nbsp;</span></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">O log de transações (Transaction Log) é usado muito pouco neste modelo de recuperação. De fato, quase nada<span color:="" black"=""> </span>é registrado no log. Isto significa dizer que a escolha em usar este modelo para seus banco de dados só será possível recuperar o último backup. Qualquer modificação feita em seu banco de dados depois do último backup ter sido executado será perdida, porque estas alterações não são registradas no log de transações. Este modelo é uma boa escolha<span color:="" black"=""> </span>para bancos de dados de desenvolvimento onde a maior parte dos dados são dados de teste e que não têm de ser restaurados depois<span color:="" black"=""> </span>um incidente. Ele é também uma boa escolha para bancos de dados que não são modificados freqüentemente, por exemplo um banco de dados OLAP. Para implementar uma estratégia de backup que inclui somente cópias completas do seu banco de dados, você deve escolhe o modelo de recuperação SIMPLE.<span color:="" black"=""></span></span></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><b mso-bidi-font-weight:="" normal"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">&nbsp;</span></b></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">Faça a conexão com seu servidor SQL Server, escolha o banco de dados em que você precisa definir o modo de recuperação, clique com o botão direito e escolha a opção <i mso-bidi-font-style:="" normal"="">Properties</i>. Agora selecione a página <i mso-bidi-font-style:="" normal"="">Options</i> para definir o modelo de recuperação, conforme figura abaixo. <span background:="" yellow;="" mso-highlight:="" yellow"=""></span></span></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><b mso-bidi-font-weight:="" normal"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">&nbsp;</span></b></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><b mso-bidi-font-weight:="" normal"=""><span font-size:="" 10pt;="" font-family:="" verdana"=""><img class="imagem_artigo" height="433" alt="03-09-2007pic01.JPG" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/03-09-2007pic01.JPG" width="484" border="0">&nbsp;</span></b></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><b mso-bidi-font-weight:="" normal"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">&nbsp;</span></b></p>
+<h1 margin:="" 0cm="" 0pt"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">BULK-LOGGED</span></h1>
+<p class="MsoNormal" margin:="" 0cm="" 0pt"="">&nbsp;</p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">Este modelo registra muito mais informação no log de transações do que o<span color:="" black"=""> </span>modelo <b mso-bidi-font-weight:="" normal"="">SIMPLE</b>. A única informação não registrada são operações de volume como:<span color:="" black"=""> </span>SELECT INTO, BCP, BULK INSERT,CREATE INDEX e operações com os tipos de dados texto e ntext. Isto significa que você pode recuperar a maior parte dos dados no caso de algum problema, porém só as operações citadas serão perdidas. Você pode configurar esta opção antes da execução de um operação de volume de inserção objetivando acelerar esta ação. Você deve realizar cópia do seu banco de dados imediatamente após a execução de operações de volume. Caso você escolha esta opção tudo que é inserido durante este período não estará no log de transações.</span></p>
+<p class="MsoBodyTextIndent" margin:="" 0cm="" 0pt;="" text-indent:="" 0cm;="" text-align:="" left"="" align="left"><span font-size:="" 10pt;="" font-family:="" verdana"="">&nbsp;</span></p>
+<p class="MsoBodyTextIndent" margin:="" 0cm="" 0pt;="" text-indent:="" 0cm;="" text-align:="" left"="" align="left"><span font-size:="" 10pt;="" font-family:="" verdana"="">Em alguns bancos de dados, esse modelo de recuperação não pode ser utilizado o tempo todo por causa das limitações do tamanho do log de transações e das questões de desempenho que surgem com operações de volume. Por isso, você precisa dimensionar a sua necessidade e aplicar o modelo de recuperação mais apropriado. <span color:="" black"=""></span></span></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><b mso-bidi-font-weight:="" normal"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">&nbsp;</span></b></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">Para escolher este modelo de recuperação, altere a opção<b mso-bidi-font-weight:="" normal"=""> </b><i mso-bidi-font-style:="" normal"="">Recovery Model</i><b mso-bidi-font-weight:="" normal"=""> </b>para<b mso-bidi-font-weight:="" normal"=""> </b><i mso-bidi-font-style:="" normal"="">Bulk-logged</i>, conforme figura abaixo.</span></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><b mso-bidi-font-weight:="" normal"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">&nbsp;</span></b></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><b mso-bidi-font-weight:="" normal"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">&nbsp;<img class="imagem_artigo" height="435" alt="03-09-2007pic02.JPG" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/03-09-2007pic02.JPG" width="485" border="0"></span></b><b mso-bidi-font-weight:="" normal"=""><span font-size:="" 10pt;="" color:="" black;="" font-family:="" verdana"="">&nbsp;</span></b></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><b mso-bidi-font-weight:="" normal"=""><span font-size:="" 10pt;="" color:="" black;="" font-family:="" verdana"="">&nbsp;</span></b></p>
+<h1 margin:="" 0cm="" 0pt"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">FULL</span></h1>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">&nbsp;</span></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">Este modelo de recuperação informa ao SQL Server que você quer realizar também o backup de log de transações. Para tornar isso possível, o SQL Server mantém todas as transações em um log de transações até que um backup do log de transações ocorra. Quando o backup do log de transações acontece, o SQL Server trunca o log de transações depois que o backup é gravado no dispositivo de backup. No modelo de recuperação <b mso-bidi-font-weight:="" normal"="">SIMPLE</b>, o log de transações é truncado depois da cada ponto de verificação, o que significa que as transações praticadas são excluídas do log de transações. Usando este modelo, você será capaz de recuperar seu banco de dados até o minuto<span color:="" black"=""> </span>após acontecer um determinado problema. Esta é uma boa opção de modo de recuperação para a maior parte de bancos de dados de produção, porque ele oferece o mais alto<span color:="" black"=""> </span>nível de proteção.</span></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">&nbsp;</span></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">Para escolher este modelo de recuperação, altere a opção<b mso-bidi-font-weight:="" normal"=""> </b><i mso-bidi-font-style:="" normal"="">Recovery Model</i><b mso-bidi-font-weight:="" normal"=""> </b>para<b mso-bidi-font-weight:="" normal"=""> </b><i mso-bidi-font-style:="" normal"="">FULL</i>, conforme figura abaixo.<span color:="" black"=""></span></span></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" text-indent:="" 35.45pt;="" mso-layout-grid-align:="" none"=""><b mso-bidi-font-weight:="" normal"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">&nbsp;</span></b></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><span font-size:="" 10pt;="" font-family:="" verdana"=""><img class="imagem_artigo" height="436" alt="03-09-2007pic03.JPG" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/03-09-2007pic03.JPG" width="486" border="0">&nbsp;</span></p>
+<p class="MsoBodyText" margin:="" 0cm="" 0pt;="" text-align:="" left"="" align="left"><b mso-bidi-font-weight:="" normal"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">&nbsp;</span></b></p>
+<p class="MsoBodyText" margin:="" 0cm="" 0pt;="" text-align:="" left"="" align="left"><b mso-bidi-font-weight:="" normal"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">Importante:</span></b><span font-size:="" 10pt;="" font-family:="" verdana"=""> Se nenhum backup de log de transações for feito quando você tiver utilizando o modelo de recuperação <i mso-bidi-font-style:="" normal"="">FULL</i>, o seu arquivo de log do banco de dados aumentará até o seu tamanho máximo. <span color:="" black"=""></span></span></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">&nbsp;</span></p>
+<h1 margin:="" 0cm="" 0pt"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">CENÁRIO</span></h1>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">&nbsp;</span></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">Você criou um novo banco de dados em seu Servidor SQL, e você precisa garantir que está sendo realizada tão rapidamente e eficientemente quanto possível a cópia de segurança. Você sabe que, para assegurar isto, você precisa configurar no banco de dados para usar o modelo de recuperação mais adequado a sua organização, portanto você decide configurar o modelo recuperação<span color:="" black"=""> para seu </span>novo banco de dados. </span></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">&nbsp;</span></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">1. Em seu servidor SQL Server, clique com o botão direito em <i mso-bidi-font-style:="" normal"="">Databases</i> e selecione <i mso-bidi-font-style:="" normal"="">New Database</i>, conforme figura abaixo. </span></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">&nbsp;</span></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><span font-size:="" 10pt;="" font-family:="" verdana"=""></span></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><span font-size:="" 10pt;="" font-family:="" verdana"=""><img class="imagem_artigo" height="332" alt="03-09-2007pic04.JPG" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/03-09-2007pic04.JPG" width="364" border="0">&nbsp;</span></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">&nbsp;</span></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">2.<span mso-spacerun:="" yes"="">&nbsp; </span>Digite o nome do seu banco de dados, conforme mostrado abaixo.</span></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">&nbsp;</span></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><span font-size:="" 10pt;="" font-family:="" verdana"=""><img class="imagem_artigo" height="436" alt="03-09-2007pic05.JPG" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/03-09-2007pic05.JPG" width="485" border="0">&nbsp;</span></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">&nbsp;</span></p>
+<p class="MsoBodyText" margin:="" 0cm="" 0pt;="" text-align:="" left"="" align="left"><span font-size:="" 10pt;="" font-family:="" verdana"="">3. Selecione a página <i mso-bidi-font-style:="" normal"="">Options</i> e configure o modelo de recuperação para sua base de dados, conforme sua estratégia de backup e clique em OK.</span></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">&nbsp;</span></p>
+<p class="MsoBodyTextIndent" margin:="" 0cm="" 0pt;="" text-align:="" left"="" align="left"><span font-size:="" 10pt;="" font-family:="" verdana"=""><img class="imagem_artigo" height="439" alt="03-09-2007pic06.JPG" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/03-09-2007pic06.JPG" width="489" border="0">&nbsp;</span></p>
+<p class="MsoBodyTextIndent" margin:="" 0cm="" 0pt;="" text-align:="" left"="" align="left"><span font-size:="" 10pt;="" font-family:="" verdana"="">&nbsp;</span></p>
+<p class="MsoBodyTextIndent" margin:="" 0cm="" 0pt;="" text-indent:="" 0cm;="" text-align:="" left"="" align="left"><b mso-bidi-font-weight:="" normal"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">Importante:</span></b><span font-size:="" 10pt;="" font-family:="" verdana"=""> A primeira coisa em que você deve ter em mente é qual o nível de recuperação que você necessita ter para este novo banco de dados. Observe atenciosamente cada um dos modelos apresentados, a fim de que sua escolha para o modelo de recuperação seja a mais adequada possível.</span></p>
+<p class="MsoNormal" margin:="" 0cm="" 0pt;="" mso-layout-grid-align:="" none"=""><span font-size:="" 10pt;="" font-family:="" verdana"="">&nbsp;</span></p></span>
+
+					</div>
+			</div>
+			
+			
+			<section id="box_autor_revista">
+
+	<a href="http://www.devmedia.com.br/autor/marcondes-alexandre/176079"><img src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/Col_176079_Marcondes.jpg" width="55px" border="0"></a>
+	
+	<br>
+		
+	<span class="nome_autor"><a href="http://www.devmedia.com.br/autor/marcondes-alexandre/176079" rel="author">Marcondes Alexandre</a></span><br>
+	
+		
+	<span class="minibio_autor">Marcondes Alexandre(marcondesalexandre@yahoo.com.br)é Bacharel em Informática pela UNIFOR, especialista em docência do ensino superior pela UECE, mestrando em Informática Aplicada pela UECE. MVP em SQL Azure, MCITP SQL Server 2008 [...]</span>
+	
+	
+</section>					
+
+				<div id="div_barrasocial" style="border-top: 1px solid #CACACA;border-bottom: 1px solid #CACACA;background-color:#F8F8F8;padding-top:10px;padding-left:5px;padding-bottom:10px;margin-top:60px;margin-bottom:60px;"> 
+			
+					<div id="box_social">		
+					  <span class="st_twitter_hcount" displaytext="Tweet" st_processed="yes"><span style="text-decoration:none;color:#000000;display:inline-block;cursor:pointer;" class="stButton"><span><span class="stMainServices st-twitter-counter" style="background-image: url(http://w.sharethis.com/images/twitter_counter.png);">&nbsp;<img src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/check-big.png" style="position: absolute; top: -7px; right: -7px; width: 19px; height: 19px; max-width: 19px; max-height: 19px; display: none;"></span><span class="stArrow"><span class="stButton_gradient stHBubble"><span class="stBubble_hcount"></span></span></span></span></span></span>
+					  <span class="st_plusone_hcount" displaytext="Tweet2" st_processed="yes"><div style="display:inline-block;overflow:hidden;line-height:0px;position:relative;vertical-align:middle;bottom:0px;width:75px; height:21px;">&nbsp;<div id="___plusone_1" style="text-indent: 0px; margin: 0px; padding: 0px; background-color: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 90px; height: 20px; background-position: initial initial; background-repeat: initial initial;"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 90px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" width="100%" id="I1_1380220102569" name="I1_1380220102569" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/fastbutton(1).htm" data-gapiattached="true" title="+1"></iframe></div></div></span>
+					  <span class="st_fblike_hcount" displaytext="Facebook" st_processed="yes"><span style="text-decoration:none;color:#000000;display:inline-block;cursor:pointer;position:relative;margin:3px 3px 0;padding:0px;font-size:11px;line-height:0px;vertical-align:bottom;overflow:visible;"><div data-action="" data-send="false" data-layout="button_count" data-show-faces="false" class="fb-like fb_edge_widget_with_comment fb_iframe_widget" data-href="http://www.devmedia.com.br/definindo-estrategia-de-modelo-de-recuperacao-para-banco-de-dados-sql-server-2005/6458" fb-xfbml-state="rendered"><span style="height: 20px; width: 79px;"><iframe id="f23c5b5d98" name="f102900328" scrolling="no" title="Like this content on Facebook." class="fb_ltr" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/like(1).htm" style="border: none; overflow: hidden; height: 20px; width: 79px;"></iframe></span></div></span></span>
+					</div>			
+					<div style="margin-left:50px;float:left;">&nbsp;</div>
+					<span id="ja_votou" style="display:none">0</span>
+
+<div id="box_fb_comp">			
+	<div style="float:left;">
+
+	
+	<a class="linkfeedback" href="http://www.devmedia.com.br/definindo-estrategia-de-modelo-de-recuperacao-para-banco-de-dados-sql-server-2005/6458#" onclick="document.getElementById(&#39;div_feedback_post&#39;).style.display=&#39;block&#39;;"><img src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/handUp.png"><span style="font-size:1.4em;font-weight:600;color:#0127BE;">&nbsp;Gostei</span>
+	<span style="margin-left:4px;font-size:1.4em;color:#0127BE;">(1)</span></a>
+
+	
+	
+	</div>
+
+	<div style="margin-left:40px;float:left;">
+	
+			
+	<a class="linkfeedback" href="http://www.devmedia.com.br/definindo-estrategia-de-modelo-de-recuperacao-para-banco-de-dados-sql-server-2005/6458#" onclick="document.getElementById(&#39;div_feedback_post&#39;).style.display=&#39;block&#39;;">
+	<img src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/handDown_peq2.png">
+	
+	<span style="font-size:1.2em;color:#787878;"> (0)</span></a></div>
+	
+	
+	<div style="clear:both;"></div>
+</div>
+	
+					
+					<div style="clear:both;"></div>
+				
+					</div>
+					<!--- **** -->
+					
+					
+			
+
+			<div style="margin-left:0px;width:100%;border-top: 1px solid #CACACA;"></div>
+					
+			<a name="comentariosArtigo"></a>
+			 <div id="box_comentarios"> 
+				
+<a name="linkcoment"></a>
+<div id="div_comentarios" style="display:table;">
+
+<br>
+	  
+				  <a href="http://www.devmedia.com.br/rte3/addcomment.asp?idcomp=6458" rel="nofollow">
+			  
+					<img src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/comente.png" border="0">
+					
+					</a>
+	  &nbsp;&nbsp;&nbsp;<span class="texto_comentario_qtd">&nbsp;0&nbsp;COMENTÁRIO</span>
+<br><br>
+
+
+<div id="popcoment">
+<a href="http://www.devmedia.com.br/definindo-estrategia-de-modelo-de-recuperacao-para-banco-de-dados-sql-server-2005/6458#coment" onclick="document.getElementById(&#39;popcoment&#39;).style.display=&#39;none&#39;;"><b>[Fechar]</b></a>
+<br><br>
+	Este post é fechado - você precisa ter acesso ao post para incluir um comentário.<br><br>
+</div>
+
+<br>
+
+
+
+  <a href="http://www.devmedia.com.br/rte3/addcomment.asp?idcomp=6458" class="linkDEV" rel="nofollow">Nenhum comentário foi postado -  seja o primeiro a comentar!</a>
+	
+
+</div>
+
+
+	
+			 </div> 
+						
+			
+														
+										
+			
+
+		</div>
+
+		
+
+		
+		
+		<!--include file="comp_count_stats.asp" -->		
+		<div id="box_ad_mvp">
+		<span class="titulo_box_ad_mvp">Conhece a assinatura MVP?</span>
+		<div>
+		<object width="265" height="100">
+		<param name="movie" value="http://www.devmedia.com.br/imagens/banners/bannerMVP_300x100.swf">	
+		<param name="quality" value="high">
+		<param name="wmode" value="transparent">
+		<embed wmode="transparent" src="http://www.devmedia.com.br/imagens/banners/bannerMVP_300x100.swf" width="265" height="100">	
+		</object>
+		</div>
+
+		<a href="http://www.devmedia.com.br/mvp/" rel="nofollow" target="_blank">Saiba mais</a>
+	</div><div id="box_artigo_canal">  
+
+
+
+	<a href="http://www.devmedia.com.br/banco-de-dados" style="text-decoration:none">
+	<span class="span_artigo_canal">+Banco de dados</span></a>   
+   
+
+  
+</div>
+		<div id="div_publicidade">		
+		
+<span style="font-size:10px; font-family:Arial, Verdana; color:#999999;">Publicidade</span><br>
+<iframe src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/Qualcomm1-300x250.htm" width="300" height="250" scrolling="no" frameborder="0" marginwidth="0px" marginheight="0px"></iframe>
+
+		</div>
+		<div id="box_servicos_new"> 
+
+<div id="box_post_title"><center>
+<font size="3" face="verdana">Serviços</font>
+</center></div>
+
+ <div style="margin-left:15px;padding-left:10px;margin-bottom:15px;margin-top:15px;font-size:1.2em;line-height:20px;">
+
+			  
+
+			 
+					<div>
+						
+						<a class="linkDEV" href="http://www.devmedia.com.br/rte3/addcomment.asp?idcomp=6458" rel="nofollow">Inclua um comentário</a>
+						</div>
+				  
+					<div style="padding-top:10px;">
+												
+						
+						<a href="http://www.devmedia.com.br/favorite/addfavorite.asp?comp=6458" class="linkDEV" rel="nofollow">
+						Adicionar aos Favoritos</a>
+						</div>
+				  
+				  <div style="padding-top:10px;">
+						<a class="linkDEV" href="http://www.devmedia.com.br/favorite/add_finished.asp?comp=6458" style="color: #333333;	font-weight: bold;" rel="nofollow"></a><a href="http://www.devmedia.com.br/favorite/add_finished.asp?comp=6458" class="linkDEV" rel="nofollow">Marcar como lido/assistido</a>
+				  </div>
+
+				  <div style="padding-top:10px;">						
+						<a class="linkDEV" href="http://www.devmedia.com.br/articles/addnote.asp?idcomp=6458" rel="nofollow">
+						Incluir anotação pessoal</a>				  						
+					</div>
+			
+				  <div style="padding-top:10px;">
+						<a class="linkDEV" href="http://www.devmedia.com.br/articles/viewcomp_forprint.asp?comp=6458">Versão para impressão</a>
+						</div>
+
+	</div>
+</div>
+
+		</div><!-- @@@ --->
+
+		
+
+	</div>
+
+
+
+
+<div id="div_feedback_post">
+<font face="verdana" size="2"><a href="http://www.devmedia.com.br/definindo-estrategia-de-modelo-de-recuperacao-para-banco-de-dados-sql-server-2005/6458#" onclick="document.getElementById(&#39;div_feedback_post&#39;).style.display=&#39;none&#39;;">[Fechar]</a></font>
+<br><br>
+		
+		<font size="2" face="verdana"><b>Você precisa estar logado para dar um feedback. </b><br><br><a href="http://www.devmedia.com.br/login/login.asp?ret=articles/viewcomp.asp?comp=6458" rel="nofollow">Clique aqui para efetuar o login</a></font>
+		
+</div>
+				     				
+<div id="pop">
+<a href="http://www.devmedia.com.br/definindo-estrategia-de-modelo-de-recuperacao-para-banco-de-dados-sql-server-2005/6458#" onclick="document.getElementById(&#39;pop&#39;).style.display=&#39;none&#39;;"><font face="verdana" size="2"><b>[Fechar]</b></font></a><font face="verdana" size="2">
+<br><br><br>
+	  Este post está <u>fechado</u>. <a href="http://www.devmedia.com.br/mvp" rel="nofollow" target="_blank">Saiba mais sobre a <b>assinatura MVP</b>!</a>
+</font></div><font face="verdana" size="2">
+
+
+<div id="poplogin">
+<a href="http://www.devmedia.com.br/definindo-estrategia-de-modelo-de-recuperacao-para-banco-de-dados-sql-server-2005/6458#" onclick="document.getElementById(&#39;poplogin&#39;).style.display=&#39;none&#39;;"><font face="verdana" size="2"><b>[Fechar]</b></font></a><font face="verdana" size="2">
+	
+		Você precisa estar logado para dar seu feedback.	
+	<br><br>
+	<a href="http://www.devmedia.com.br/login/login.asp?comp=6458">Clique aqui para efetuar o login</a><br><br>
+	<a href="https://seguro.devmedia.com.br/cadastro_first.asp?site=3">Caso não tenha um cadastro DevMedia, clique aqui para se cadastrar (gratuito)</a>
+	
+</font></div><font face="verdana" size="2">
+
+<div id="poplink">
+<a href="http://www.devmedia.com.br/definindo-estrategia-de-modelo-de-recuperacao-para-banco-de-dados-sql-server-2005/6458#" onclick="document.getElementById(&#39;poplink&#39;).style.display=&#39;none&#39;;"><font face="verdana" size="2"><b>[Fechar]</b></font></a><font face="verdana" size="2">
+<br><br>
+	Este é um post fechado - Você precisa ter acesso ao post para habilitar os links de download.<br><br>
+</font></div><font face="verdana" size="2">
+
+<div style="clear:both;"></div>
+
+<section id="section_relacionados">
+<p class="titulo_relacionados">Mais posts</p>
+<nav id="nav_relacionados">
+<ul>
+
+ <li class="lista_relacionados">
+  <div id="tipo_post_relacionado">Artigo</div> 
+  <div id="titulo_post_relacionado"><a href="http://www.devmedia.com.br/tablespace-estrutura-de-armazenamento-oracle/29173">Tablespace: Estrutura de armazenamento Oracle</a></div> 
+ </li>
+
+ <li class="lista_relacionados">
+  <div id="tipo_post_relacionado">Revista</div> 
+  <div id="titulo_post_relacionado"><a href="http://www.devmedia.com.br/revista-sql-magazine-115/29037">Revista SQL Magazine 115</a></div> 
+ </li>
+
+ <li class="lista_relacionados">
+  <div id="tipo_post_relacionado">Artigo</div> 
+  <div id="titulo_post_relacionado"><a href="http://www.devmedia.com.br/stored-procedures-no-mysql/29030">Stored Procedures no MySQL</a></div> 
+ </li>
+
+ <li class="lista_relacionados">
+  <div id="tipo_post_relacionado">Artigo</div> 
+  <div id="titulo_post_relacionado"><a href="http://www.devmedia.com.br/como-evitar-erros-comuns-em-bancos-de-dados/28972">Como evitar erros comuns em bancos de dados</a></div> 
+ </li>
+
+ <li class="lista_relacionados">
+  <div id="tipo_post_relacionado">Artigo</div> 
+  <div id="titulo_post_relacionado"><a href="http://www.devmedia.com.br/alta-disponibilidade-no-banco-de-dados-oracle-parte-1/28971">Alta disponibilidade no banco de dados Oracle - Parte 1</a></div> 
+ </li>
+
+ <li class="lista_relacionados">
+  <div id="tipo_post_relacionado">Artigo</div> 
+  <div id="titulo_post_relacionado"><a href="http://www.devmedia.com.br/otimizando-consultas-no-oracle/28970">Otimizando consultas no Oracle </a></div> 
+ </li>
+
+ <li class="lista_relacionados">
+  <div id="tipo_post_relacionado">Artigo</div> 
+  <div id="titulo_post_relacionado"><a href="http://www.devmedia.com.br/piores-praticas-em-bancos-de-dados/28969">Piores práticas em bancos de dados </a></div> 
+ </li>
+
+ <li class="lista_relacionados">
+  <div id="tipo_post_relacionado">Artigo</div> 
+  <div id="titulo_post_relacionado"><a href="http://www.devmedia.com.br/mineracao-de-dados-educacionais-usando-kdd-parte-1/28968">Mineração de Dados Educacionais usando KDD – Parte 1 </a></div> 
+ </li>
+
+ <li class="lista_relacionados">
+  <div id="tipo_post_relacionado">Artigo</div> 
+  <div id="titulo_post_relacionado"><a href="http://www.devmedia.com.br/monitoramento-de-performance-com-perfmon/28967">Monitoramento de performance com Perfmon </a></div> 
+ </li>
+
+ <li class="lista_relacionados">
+  <div id="tipo_post_relacionado">Artigo</div> 
+  <div id="titulo_post_relacionado"><a href="http://www.devmedia.com.br/trabalhando-com-plano-de-manutencao-no-sql-server/28966">Trabalhando com plano de manutenção no SQL Server </a></div> 
+ </li>
+
+</ul>
+</nav>
+
+<div id="div_listar_relacionados">
+ <div id="botao_listar_relacionados"> 
+ <center><a href="http://www.devmedia.com.br/banco-de-dados" style="color:white;">Listar mais conteúdo</a></center>
+ </div>
+</div> 
+</section>
+</font></font></font></div></div><font face="verdana" size="2"><font face="verdana" size="2"><font face="verdana" size="2">
+<div id="rodape">
+<div style="margin-top:35px;background:url(/imagens/portal2010/shadow-down.png?d1) repeat-x 0 0;width:100%;height:8px;clear:both;"></div>
+<div class="rodapeALL" style="margin-top:0;height:230px;"><!--box-shadow: 0px -4px 4px 0px #666;-->
+	<div class="rodape_div1">
+		<div class="rodape_div2" style="padding:0px;height:230px;border:0px solid black;">
+			<div id="rodape_div1_floatLeft_first" class="rodape_div1_floatLeft" style="position:absolute;margin:0px;bottom:29px;left:0px;border:0px;">
+				<div style="display:table;padding-bottom:12px;">
+				<a class="linkRodape" target="_blank" href="http://www.web-03.net/" rel="nofollow"><img border="0" width="77" alt="web-03" title="web-03" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/logoweb03.png"></a><br>
+				
+				<a class="" href="http://www.devmedia.com.br/" rel="nofollow">DevMedia</a>
+				&nbsp;|&nbsp; <a class="" target="_blank" href="http://www.web-03.net/devmedia.asp">Anuncie</a>
+				&nbsp;|&nbsp; <a class="" href="http://www.devmedia.com.br/central/faq_fale_conosco.asp">Fale conosco</a>
+				<br><a href="http://www.porta80.com.br/" target="_blank">Hospedagem web</a> por Porta 80 Web Hosting
+				
+				</div><div style="display:table;font-family: Verdana, Arial, Helvetica, sans-serif;border-top:1px solid #AAA;"><font style="font-size:10px;color:#808080;">2013 - Todos os Direitos Reservados a </font><a class="linkRodape2" target="_blank" href="http://www.web-03.net/" rel="nofollow"><strong>web-03</strong></a></div>
+			</div><div class="facebook-box" style="float:right;margin:33px -10px 0 0;background:#fff;"><div class="fb-like-box fb_iframe_widget" data-href="http://www.facebook.com/DevmediaWeb03" data-width="515" data-height="170" data-show-faces="true" data-stream="false" data-header="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=145393072270566&amp;header=false&amp;height=170&amp;href=http%3A%2F%2Fwww.facebook.com%2FDevmediaWeb03&amp;locale=pt_BR&amp;sdk=joey&amp;show_faces=true&amp;stream=false&amp;width=515"><span style="vertical-align: bottom; width: 515px; height: 170px;"><iframe name="f1388af6a4" width="515px" height="170px" frameborder="0" allowtransparency="true" scrolling="no" title="fb:like_box Facebook Social Plugin" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/like_box.htm" style="border: none; visibility: visible; width: 515px; height: 170px;" class=""></iframe></span></div></div>
+		</div>
+	</div>
+</div>
+</div>
+
+</font></font></font><div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tab-index="-1" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/xd_arbiter.htm" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tab-index="-1" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/xd_arbiter(1).htm" style="border: none;"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="f49b293b8" frameborder="0" allowtransparency="true" scrolling="no" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/ping.htm" style="display: none;"></iframe></div></div></div><iframe id="stSegmentFrame" name="stSegmentFrame" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/getSegment.htm" frameborder="0" scrolling="no" width="0px" height="0px" style="display:none;"></iframe><div id="stwrapper" class="stwrapper" style="visibility: hidden; top: -999px; left: -999px; width: 500px; z-index: 89999999;"><div class="stCloseNew2"></div><iframe allowtransparency="true" id="stLframe" class="stLframe" name="stLframe" frameborder="0" scrolling="no" width="500px" height="430px" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/index.e7adad98b30bb812a3da46df30336a31.htm" style="top: 0px; left: 0px;"></iframe></div><div id="stOverlay" style="height: 100%; width: 100%; background-color: rgb(0, 0, 0); opacity: 0.6; position: fixed; display: none; left: 0px; top: 0px; z-index: 89999990;"></div><div id="fb-root"></div><iframe name="oauth2relay766412024" id="oauth2relay766412024" src="./Definindo Estratégia de Modelo de Recuperação para Banco de Dados SQL Server 2005_files/postmessageRelay.htm" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe></body></html>

@@ -1,0 +1,17 @@
+* Procurar arquivo em pastas
+    $ cd /
+    $ find . -name "*MY_FILE*"
+    
+* Para procurar comandos pode ser usado o "which"
+    $ which COMMAND
+    $ which cp
+    $ which echo
+    * Só funciona quando os comandos estão em arquivos
+
+* Para procurar comandos também pode ser usado o "type"
+    * Além de arquivos, também procura por shell functions
+    $ type nvm
+    $ type -a nvm # mostra resumido
+    $ type -a -p rvm # um comando pode ser arquivo e shell, -p mostra tudo
+    $ type echo
+    $ type which

@@ -1,0 +1,18 @@
+* Atualizar lista de pacotes para procura
+    * sudo apt update
+
+* Procurar pacotes
+    * sudo apt list *MYPACK*
+    * sudo apt search MYPACK
+
+* Instalar pacote
+    * sudo apt install MYPACK
+
+* Remover pacote
+    * sudo apt remove MYPACK
+    * sudo apt remove --purge MYPACK
+
+* Lista pacotes instalados
+    * dpkg --get-selections
+    * dpkg --get-selections *MYPACK*
+

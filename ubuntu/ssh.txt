@@ -1,0 +1,34 @@
+* SSH-KEY na Digital Ocean
+    * Durante a criação de uma VM, selecione SSH-KEY
+    * Abre uma tela para digitar a chave pública (que fica no servidor)
+    * A chave privada (que fica no computador local) precisa ser gerado via terminal no computador local, segue comandos:
+        $ ssh-keygen
+        $ ~/.ssh/APPNAME   # Customo substituir "id_rsa" pelo nome do aplicativo
+        $ Enter passphrase:    # Necessário digitar uma "senha" da SSH-KEY
+    * Na digital ocean, é preciso colocar:
+        * Conteudo arquivo: ~/.ssh/APPNAME.pub
+        * Quando pedir um "name", pode colocar o APPNAME
+    * Nesse momento já possível se conectar como root via SSH
+    * Pode ser criado um novo usuário, mas deve executar os seguintes comandos:
+        $ mkdir /home/USERNAME/.ssh
+        $ cp /root/.ssh/authorized_keys /home/USERNAME/.ssh
+        $ sudo chown -R USERNAME /home/USERNAME/.ssh
+    * Ajuda:
+        * https://www.digitalocean.com/community/tutorials/como-configurar-chaves-ssh-no-ubuntu-18-04-pt
+        * https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-freebsd-server
+        * https://serverfault.com/questions/670646/adding-new-user-to-aws-ec2-permission-denied-publickey
+        
+* Desabilitar autenticação por senha
+    $ sudo vim /etc/ssh/sshd_config
+        * Alterar esta linha:
+        $ PasswordAuthentication no
+    $ sudo service ssh restart
+    * https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server
+    * https://devops.ionos.com/tutorials/use-ssh-keys-with-putty-on-windows/
+
+* Transferir arquivo:
+    $ scp root@192.168.1.1:/home/FILENAME.TXT /home
+    OR
+    $ scp /home/FILENAME.TXT root@192.168.1.1:/home
+    * HELP: https://unix.stackexchange.com/questions/106480/how-to-copy-files-from-one-machine-to-another-using-ssh
+    * No windows usar PSCP: https://www.binbert.com/blog/2011/04/secure-file-transfer-from-windows-to-linux-using-rsa-key/

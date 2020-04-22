@@ -1,0 +1,12 @@
+# Configurar SSL do Let’s Encrypt no Nginx
+
+* Segue os passos:
+    * Deixar nginx configurado, inclusive com: server_name example.com
+    * Habilitar o firewall:
+        $ sudo ufw allow 443/tcp
+    $ sudo add-apt-repository ppa:certbot/certbot
+    $ sudo apt update
+    $ sudo apt install python-certbot-nginx
+    $ sudo certbot --nginx -d example.com
+
+* https://www.digitalocean.com/community/tutorials/como-proteger-o-nginx-com-o-let-s-encrypt-no-ubuntu-18-04-pt

@@ -1,0 +1,55 @@
+* Instalar
+    $ sudo apt install postgresql
+    * HELP: https://linuxconfig.org/install-postgresql-on-ubuntu-18-04-bionic-beaver
+
+* Configuração para conectar com Ruby on Rails
+    $ sudo apt install libpq-dev
+    * Driver do RAILS é uma Native Extension e precisa ser recompilado durante a instalação
+    
+* Definir senha do usuário Postgres
+    $ sudo -u postgres psql
+    $ postgres=# \password postgres
+    $ Enter new password: 
+    $ Enter it again: 
+    * HELP: https://serverfault.com/questions/110154/whats-the-default-superuser-username-password-for-postgres-after-a-new-install
+
+* Editar pg_hba.conf
+    $ sudo vim /etc/postgresql/10/main/pg_hba.conf
+    * DANGER: host all all 0.0.0.0/0 trust
+
+* Criar Database
+    $ sudo -u postgres createdb DATABASENAME --owner=USERNAME
+
+* Ver Databases
+    $ sudo -u postgres psql
+    $ \list
+
+* Ver usuários
+    $ sudo -u postgres psql
+    $ \du
+
+* Criar usuários
+    $ sudo -u postgres createuser --interactive --pwprompt
+
+* Backup in binary file
+    $ pg_dump --file="/home/FILENAME.backup" --host=localhost --dbname=DATABASENAME --username=USERNAME --password --format=c
+
+* Backup plain text
+    $ pg_dump --file="/home/FILENAME.backup" --host=localhost --dbname=DATABASENAME --username=USERNAME --password
+    
+* Retore backup plain text
+    $ psql --host=localhost --dbname=DATABASENAME --username=USERNAME --password < /home/FILENAME.backup
+
+* Allowed connections from others IP's
+    * In pg_hba.conf
+        $ host all all 177.85.118.22/32 md5
+    * In postgresql.conf 
+        $ listen_addresses = '*'
+
+* Transferir backup
+    $ scp root@192.168.1.1:/home/FILENAME.backup /home
+    OR
+    $ scp /home/FILENAME.backup root@192.168.1.1:/home
+    * HELP: https://unix.stackexchange.com/questions/106480/how-to-copy-files-from-one-machine-to-another-using-ssh
+    * No windows usar PSCP: https://www.binbert.com/blog/2011/04/secure-file-transfer-from-windows-to-linux-using-rsa-key/
+

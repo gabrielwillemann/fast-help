@@ -1,0 +1,48 @@
+* Nome single file components (do arquivo):
+    * https://vuejs.org/v2/style-guide/#Single-file-component-filename-casing-strongly-recommended
+    * Este link permite nomear no padrão kebab-case: my-component.vue
+    * "Filenames of single-file components should either be always PascalCase or always kebab-case."
+* Nome do componente:
+    * "export default (name: XXXX)"
+    * Não há uma orientação clara na Style Guide sobre esse nome
+    * Mas dá a entender que deveria ser o mesmo nome do SigleFileComponent
+* Declaração de componentes em templates:
+    * A preferência é declarar usando PascalCase (citado algumas vantanges)
+    * Mas é aceitável declarar com kebab-case, porque é o HTML puro somente aceita kebab.
+    * Seria para manter uma consistência com outras convenções.
+    * "In those cases, using kebab-case everywhere is also acceptable."
+    * https://vuejs.org/v2/style-guide/#Component-name-casing-in-templates-strongly-recommended
+    * Vale ressaltar:
+        * Mesmo que o Sigle File Component tenha sido declarado com PascalCase
+        * o Vue permite (converte automaticamente) que ele seja declarado com kebab-case
+* Importação do componente
+    * Não há como usar kebab-case neste caso
+    * Como aqui estamos falando de JavaScript, o padrão é:
+        * PascalCase para classes
+        * camelCase para objetos
+        * https://github.com/airbnb/javascript#objects
+        * https://github.com/airbnb/javascript#classes--constructors
+    * Interpretação #1:
+        * Componente é um objeto JavaScript
+        * Ele não é uma classe, porque ele não instanciado (new Component)
+        * Mas isso pode conflitar com uma orientação que os Single File Component não podem usar o padrão camelCase
+    * Interpretação #2:
+        * Embora o componente seja um objeto JavaScript
+        * Esse tenha um comportamento semelhante ao de uma classe
+
+* Possibilidade #1:
+    * Nome single file components: PascalCase
+    * Nome do componente: PascalCase
+    * Declaração de componentes em templates: kebab-case
+    * Importação do componente: PascalCase
+
+* Possibilidade #2:
+    * Nome single file components: kebab-case
+    * Nome do componente: kebab-case
+    * Declaração de componentes em templates: kebab-case
+    * Importação do componente: PascalCase
+
+
+
+* Convenção de nome para arquivos JS
+    * https://google.github.io/styleguide/jsguide.html#file-name

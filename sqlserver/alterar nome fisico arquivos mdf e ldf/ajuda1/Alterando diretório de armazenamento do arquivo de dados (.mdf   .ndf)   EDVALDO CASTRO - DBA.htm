@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<!-- saved from url=(0099)http://edvaldocastro.com/2011/05/23/alterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf/ -->
+<html lang="pt-br"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<title>Alterando diretório de armazenamento do arquivo de dados (.mdf / .ndf) | EDVALDO CASTRO - DBA</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="http://edvaldocastro.com/xmlrpc.php">
+<!--[if lt IE 9]>
+<script src="http://s1.wp.com/wp-content/themes/pub/rusty-grunge/html5.js?m=1315596887g" type="text/javascript"></script>
+<![endif]-->
+
+		<script src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/quant.js" async="" type="text/javascript"></script><script async="" type="text/javascript" src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/saved_resource"></script><script src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/remote-login.php" type="text/javascript"></script>
+		<script type="text/javascript">
+		/* <![CDATA[ */
+			if ( 'function' === typeof WPRemoteLogin ) {
+				document.cookie = "wordpress_test_cookie=test; path=/";
+				if ( document.cookie.match( /(;|^)\s*wordpress_test_cookie\=/ ) ) {
+					WPRemoteLogin();
+				}
+			}
+		/* ]]> */
+		</script>
+		<link rel="alternate" type="application/rss+xml" title="Feed de EDVALDO CASTRO - DBA »" href="http://edvaldocastro.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="EDVALDO CASTRO - DBA »  Feed de comentários" href="http://edvaldocastro.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="EDVALDO CASTRO - DBA » Alterando diretório de armazenamento do arquivo de dados (.mdf / .ndf)  Feed de comentários" href="http://edvaldocastro.com/2011/05/23/alterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf/feed/">
+<script type="text/javascript">
+/* <![CDATA[ */
+function addLoadEvent(func){var oldonload=window.onload;if(typeof window.onload!='function'){window.onload=func;}else{window.onload=function(){oldonload();func();}}}
+/* ]]> */
+</script>
+<link rel="stylesheet" id="all-css-0" href="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/saved_resource(1)" type="text/css" media="all">
+<link rel="stylesheet" id="print-css-0" href="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/global-print.css" type="text/css" media="print">
+<script type="text/javascript">
+/* <![CDATA[ */
+var LoggedOutFollow = {"invalid_email":"Sua assinatura n\u00e3o foi bem sucedida, por favor, tente novamente com um endere\u00e7o de email v\u00e1lido."};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/saved_resource(2)"></script>
+<link rel="stylesheet" id="all-css-0" href="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/style.css" type="text/css" media="all">
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='highlander-comments-ie7-css'  href='http://s2.wp.com/wp-content/mu-plugins/highlander-comments/style-ie7.css?m=1351637563g&#038;ver=20110606' type='text/css' media='all' />
+<![endif]-->
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://edvaldocastro.wordpress.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://edvaldocastro.wordpress.com/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Mais um contribuinte  –  Casos do dia a dia – SQL SERVER" href="http://edvaldocastro.com/2011/05/23/mais-um-contribuinte-casos-do-dia-a-dia-sql-server/">
+<link rel="next" title="Utilizando e personalizando o uso da “sp_msforeachdb”." href="http://edvaldocastro.com/2011/06/17/sp_msforeachdb/">
+<meta name="generator" content="WordPress.com">
+<link rel="canonical" href="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA.htm">
+<link rel="shortlink" href="http://wp.me/p1kKYF-o">
+<link rel="alternate" type="application/json+oembed" href="http://public-api.wordpress.com/oembed/1.0/?format=json&url=http%3A%2F%2Fedvaldocastro.com%2F2011%2F05%2F23%2Falterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf%2F&for=wpcom-auto-discovery"><link rel="alternate" type="application/xml+oembed" href="http://public-api.wordpress.com/oembed/1.0/?format=xml&url=http%3A%2F%2Fedvaldocastro.com%2F2011%2F05%2F23%2Falterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf%2F&for=wpcom-auto-discovery">
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Alterando diretório de armazenamento do arquivo de dados (.mdf / .ndf)">
+<meta property="og:url" content="http://edvaldocastro.com/2011/05/23/alterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf/">
+<meta property="og:description" content="As vezes, por falha no momento da criação de um database, por não ter seguido os padrões definidos ou mesmo por necessidade de realocação de arquivos por conta de problemas com espaço em disco, som...">
+<meta property="og:site_name" content="EDVALDO CASTRO - DBA">
+<meta property="og:image" content="http://i2.wp.com/edvaldocastro.files.wordpress.com/2011/05/02.jpg?fit=1000%2C1000">
+<meta property="og:image" content="http://i0.wp.com/edvaldocastro.files.wordpress.com/2011/05/12.jpg?fit=1000%2C1000">
+<meta name="twitter:site" content="@wordpressdotcom">
+<meta name="twitter:image" content="http://i2.wp.com/edvaldocastro.files.wordpress.com/2011/05/02.jpg?fit=1000%2C1000">
+<meta name="twitter:card" content="photo">
+<meta name="twitter:creator" content="@wordpressdotcom">
+<meta property="article:publisher" content="https://www.facebook.com/WordPresscom">
+<link rel="shortcut icon" type="image/x-icon" href="http://1.gravatar.com/blavatar/920adc955bfd94e6bfeaa573625f244a?s=16" sizes="16x16">
+<link rel="icon" type="image/x-icon" href="http://1.gravatar.com/blavatar/920adc955bfd94e6bfeaa573625f244a?s=16" sizes="16x16">
+<link rel="apple-touch-icon-precomposed" href="http://0.gravatar.com/blavatar/aeff9dd2134ce059ef42ca145e92ee45?s=114">
+<link rel="openid.server" href="http://edvaldocastro.wordpress.com/?openidserver=1">
+<link rel="openid.delegate" href="http://edvaldocastro.wordpress.com/">
+<link rel="search" type="application/opensearchdescription+xml" href="http://edvaldocastro.com/osd.xml" title="EDVALDO CASTRO - DBA">
+<link rel="search" type="application/opensearchdescription+xml" href="http://wordpress.com/opensearch.xml" title="WordPress.com">
+		<style>
+		/* <![CDATA[ */
+		/* Block: reblog */
+		
+		.reblog-from img                   { margin: 0 10px 0 0; vertical-align: middle; padding: 0; border: 0; }
+		.reblogger-note img.avatar         { float: left; padding: 0; border: 0; }
+		.reblogger-note-content            { margin: 0 0 20px; }
+		.reblog-post .wpcom-enhanced-excerpt-content { border-left: 3px solid #eee; padding-left: 15px; }
+		.reblog-post ul.thumb-list         { display: block; list-style: none; margin: 2px 0; padding: 0; clear: both; }
+		.reblog-post ul.thumb-list li      { display: inline; margin: 0; padding: 0 1px; border: 0; }
+		.reblog-post ul.thumb-list li a    { margin: 0; padding: 0; border: 0; }
+		.reblog-post ul.thumb-list li img  { margin: 0; padding: 0; border: 0; }
+		
+		.reblog-post .wpcom-enhanced-excerpt { clear: both; }
+		
+		.reblog-post .wpcom-enhanced-excerpt address,
+		.reblog-post .wpcom-enhanced-excerpt li,
+		.reblog-post .wpcom-enhanced-excerpt h1,
+		.reblog-post .wpcom-enhanced-excerpt h2,
+		.reblog-post .wpcom-enhanced-excerpt h3,
+		.reblog-post .wpcom-enhanced-excerpt h4,
+		.reblog-post .wpcom-enhanced-excerpt h5,
+		.reblog-post .wpcom-enhanced-excerpt h6,
+		.reblog-post .wpcom-enhanced-excerpt p { font-size: 100% !important; }
+		
+		.reblog-post .wpcom-enhanced-excerpt blockquote,
+		.reblog-post .wpcom-enhanced-excerpt pre,
+		.reblog-post .wpcom-enhanced-excerpt code,
+		.reblog-post .wpcom-enhanced-excerpt q { font-size: 98% !important; }
+		
+
+		/* ]]> */
+		</style>
+				<style type="text/css">
+			.recentcomments a {
+				display: inline !important;
+				padding: 0 !important;
+				margin: 0 !important;
+			}
+
+			table.recentcommentsavatartop img.avatar, table.recentcommentsavatarend img.avatar {
+				border: 0px;
+				margin: 0;
+			}
+
+			table.recentcommentsavatartop a, table.recentcommentsavatarend a {
+				border: 0px !important;
+				background-color: transparent !important;
+			}
+
+			td.recentcommentsavatarend, td.recentcommentsavatartop {
+				padding: 0px 0px 1px 0px;
+				margin: 0px;
+			}
+
+			td.recentcommentstextend {
+				border: none !important;
+				padding: 0px 0px 2px 10px;
+			}
+
+			.rtl td.recentcommentstextend {
+				padding: 0px 10px 2px 0px;
+			}
+
+			td.recentcommentstexttop {
+				border: none !important;
+				padding: 0px 0px 0px 10px;
+			}
+
+			.rtl td.recentcommentstexttop {
+				padding: 0px 10px 0px 0px;
+			}
+		</style>
+		<meta name="application-name" content="EDVALDO CASTRO - DBA"><meta name="msapplication-window" content="width=device-width;height=device-height"><meta name="msapplication-tooltip" content="Sharing &amp; Learning"><meta name="msapplication-task" content="name=Assinar;action-uri=http://edvaldocastro.com/feed/;icon-uri=http://1.gravatar.com/blavatar/920adc955bfd94e6bfeaa573625f244a?s=16"><meta name="msapplication-task" content="name=Cadastre-se para um blog gratuito;action-uri=http://wordpress.com/signup/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=Suporte WordPress.com;action-uri=http://support.wordpress.com/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=Fóruns WordPress.com;action-uri=http://forums.wordpress.com/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="title" content="Alterando diretório de armazenamento do arquivo de dados (.mdf / .ndf) | EDVALDO CASTRO - DBA em WordPress.com">
+<meta name="description" content="As vezes, por falha no momento da criação de um database, por não ter seguido os padrões definidos ou mesmo por necessidade de realocação de arquivos por conta de problemas com espaço em disco, somos obrigados a fazer a movimentação do(s) arquivo(s) de dados fisicamente entre diretórios nos quais estes estão armazenados. Para executar a…">
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #1e73be; background-image: url('http://edvaldocastro.wordpress.com/wp-content/themes/pub/rusty-grunge/images/bg-body.jpg?m=1341021817g'); background-repeat: repeat; background-position: top left; background-attachment: fixed; }
+</style>
+
+<script type="text/javascript" src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/google_service.js">
+</script>
+<script type="text/javascript">
+if ( typeof GS_googleAddAdSenseService == 'function' ) { GS_googleAddAdSenseService("ca-pub-3443918307802676"); }
+if ( typeof GS_googleEnableAllServices == 'function' ) { GS_googleEnableAllServices() };
+</script><script src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/google_ads.js"></script>
+<script type="text/javascript">
+if ( typeof GA_googleAddSlot == 'function' ) { GA_googleAddSlot("ca-pub-3443918307802676", "wpcom_below_post"); }
+</script>
+<script type="text/javascript">
+if ( typeof GA_googleFetchAds == 'function' ) { GA_googleFetchAds(); }
+</script>
+
+<script type="text/javascript">
+var wpcom_ads = { bid: 19723481, pt: 'permalink', wa: 0, as: 0, domain: 'edvaldocastro.com', url: 'http://edvaldocastro.com/2011/05/23/alterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf/', gid: '', };
+</script>
+<style id="syntaxhighlighteranchor"></style>
+<script type="text/javascript"> 
+	window.google_analytics_uacct = "UA-52447-2"; 
+</script>
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-52447-2']);
+	_gaq.push(['_setDomainName', 'none']);
+	_gaq.push(['_setAllowLinker', true]);
+	_gaq.push(['_initData']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+	})();
+</script><script type="text/javascript" async="" src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/ga.js"></script>
+<script type="text/javascript" src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/osd.js"></script><link rel="stylesheet" type="text/css" id="gravatar-card-css" href="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/hovercard.css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/services.css"></head>
+
+<body class="single single-post postid-24 single-format-standard custom-background alterando-diret%c3%b3rio-de-armazenamento-do-arquivo-de-dados-mdf-ndf mp6 highlander-enabled highlander-light" style="">
+<div id="page" class="hfeed">
+		<header id="branding" role="banner">
+			<hgroup>
+				<h1 id="site-title"><span><a href="http://edvaldocastro.com/" title="EDVALDO CASTRO – DBA" rel="home">EDVALDO CASTRO – DBA</a></span></h1>
+				<h2 id="site-description">Sharing &amp; Learning</h2>
+			</hgroup>
+
+			<nav id="access" role="navigation">
+				<h1 class="section-heading">Menu principal</h1>
+				<div class="skip-link screen-reader-text"><a href="http://edvaldocastro.com/2011/05/23/alterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf/#content" title="Pular para o conteúdo">Pular para o conteúdo</a></div>
+
+				<div class="menu"><ul><li><a href="http://edvaldocastro.com/" title="Home">Home</a></li><li class="page_item page-item-2"><a href="http://edvaldocastro.com/about/">Sobre Edvaldo&nbsp;Castro</a></li></ul></div>
+			</nav><!-- #access -->
+	</header><!-- #branding -->
+
+	<div id="main">
+		<div id="primary">
+			<div id="content" role="main">
+
+			
+			
+				<nav id="nav-above">
+					<h1 class="section-heading">Navegação de Posts</h1>
+					<div class="nav-previous"><a href="http://edvaldocastro.com/2011/05/23/mais-um-contribuinte-casos-do-dia-a-dia-sql-server/" rel="prev"><span class="meta-nav">←</span> Mais um contribuinte  –  Casos do dia a dia – SQL&nbsp;SERVER</a></div>
+					<div class="nav-next"><a href="http://edvaldocastro.com/2011/06/17/sp_msforeachdb/" rel="next">Utilizando e personalizando o uso da&nbsp;“sp_msforeachdb”. <span class="meta-nav">→</span></a></div>
+				</nav><!-- #nav-above -->
+
+				
+<article id="post-24" class="post-24 post type-post status-publish format-standard hentry category-armazenamento tag-datafile tag-mdf tag-ndf">
+	<header class="entry-header">
+		<h1 class="entry-title">Alterando diretório de armazenamento do arquivo de dados (.mdf /&nbsp;.ndf)</h1>
+
+		<div class="entry-meta">
+			<span class="sep">Publicado em </span><a href="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA.htm" rel="bookmark"><time class="entry-date" datetime="2011-05-23T02:50:18+00:00" pubdate="">23 de maio de 2011</time></a> <span class="sep"> por </span> <span class="author vcard"><a class="url fn n" href="http://edvaldocastro.com/author/edvaldocastro/" title="Ver todos os posts de Edvaldo Castro">Edvaldo Castro</a></span>		</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p>As vezes, por falha no momento da criação de um database, por não ter seguido os padrões definidos ou mesmo por necessidade de realocação de arquivos por conta de problemas com espaço em disco, somos obrigados a fazer a movimentação do(s) arquivo(s) de dados fisicamente entre diretórios nos quais estes estão armazenados.</p>
+<p>Para executar a movimentação física e apontamento lógico dos datafiles (.mdf / .ndf), existem 2 premissas básicas e necessárias devem ser satisfeitas:</p>
+<p>- Possuir permissões para gravar na pasta de destino.<br>
+- Estar associado à fixed server role “sysadmin” na inst</p>
+<p><strong>Procedimentos</strong>:</p>
+<p>1 – Abra o SSMS e execute o comando abaixo, para verificar a localização atual dos arquivos de dados e log:<br>
+Use Teste — Nome do banco<br>
+GO<br>
+EXEC sp_helpfile<br>
+GO</p>
+<p><a href="http://edvaldocastro.files.wordpress.com/2011/05/02.jpg"><img class="alignnone size-full wp-image-45" title="0l" src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/02.jpg" alt=""></a></p>
+<p>2 – Feche a aba da Query aberta para executar o comando acima e em seguida, coloque o banco com status “Offline”.<br>
+2.1 – Clique com o botão direito sobre o banco que deseja colocar Offline.<br>
+2.2 – Selecione a opção “Tasks” =&gt; “Take Offline”</p>
+<p>3 – Faça a cópia física do arquivo de dados “datafile.mdf”, para o local de destino.</p>
+<p>4 – Abra uma nova query clicando no botão “New Query” e digite a instrução SQL seguir:</p>
+<p>ALTER DATABASE Teste –Nome do banco<br>
+MODIFY FILE(NAME=Teste, — Nome lógico do arquivo de dados<br>
+FILENAME = ‘E:\MSSQL2005\Teste.mdf’)– Novo caminho do datafile. (Caminho somente de exemplo)</p>
+<p>5 – Feche a aba da Query aberta para executar o comando acima e em seguida, coloque o banco com status “Online”.<br>
+5.1 – Clique com o botão direito sobre o banco que deseja colocar Online.<br>
+5.2 – Selecione a opção “Tasks” =&gt; “Bring Online”</p>
+<p>6 – Novamente, execute a instrução abaixo, para certificar-se da alteração.<br>
+Use Teste — Nome do banco<br>
+GO<br>
+EXEC sp_helpfile<br>
+GO</p>
+<p><a href="http://edvaldocastro.files.wordpress.com/2011/05/12.jpg"><img class="alignnone size-full wp-image-39" title="1" src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/12.jpg" alt=""></a></p>
+<p><strong>Checklist pós execução</strong></p>
+<p>É interessante e necessário checar sempre a efetividade de qualquer atividade executada em um ambiente de banco de dados (como em qualquer atividade, independente da área).</p>
+<p>- Verificar se a alteração foi executada com sucesso e se o banco está com o Status “Online”.</p>
+<p>- Se possível, realizar teste com a aplicação que acessa o database em questão, para validar o funcionamento.</p>
+<p><strong>Plano de retorno</strong></p>
+<p>- Se independente do sucesso ou não da atividade, houver a necessidade de retornar o ambiente como estava no momento anterior à movimentação do datafile, basta seguir exatamente os mesmos passos, alterando o caminho para o mesmo caminho que estava antes da mudança.</p>
+<p>Espero que seja útil e possa ajudar…</p>
+<p>Att.:</p>
+<p>Edvaldo Castro</p>
+<p>MCITP Database Administrator on SQL SERVER 2005</p>
+<p>MCTS SQL SERVER 2005</p>
+
+<div class="wpa" style="position: relative; width:300px; text-align: center; padding: 0; margin: 10px auto; overflow: hidden; clear: both;">
+<a style="position: absolute; text-align: left; display: block; font: 9px/1 sans-serif; text-decoration: underline;" href="http://en.wordpress.com/about-these-ads/" rel="nofollow">About these ads</a>
+<script type="text/javascript">
+		var wpcom_adclk_hovering = false;
+		var wpcom_adclk_recorded = false;
+		var wpcom_adclk_theme = "Rusty Grunge";
+		var wpcom_adclk_slot = "wpcom_below_post";
+		var wpcom_adclk_network = ( typeof wpcom_adclk_network === "undefined" ) ? "" : wpcom_adclk_network ;
+
+		jQuery(document).ready( function() {
+			function wpcom_adclk_hover_yes() { wpcom_adclk_hovering = true; }
+			function wpcom_adclk_hover_no() { wpcom_adclk_hovering = false; }
+			jQuery(".wpa").click(wpcom_adclk_click);
+			jQuery(".wpa iframe").hover( wpcom_adclk_hover_yes, wpcom_adclk_hover_no );
+			jQuery(".wpa object").hover( wpcom_adclk_hover_yes, wpcom_adclk_hover_no );
+
+			jQuery(window).blur( function() {
+				if ( wpcom_adclk_hovering ) { wpcom_adclk_click(); }
+			});
+		});
+
+		function wpcom_adclk_impression() {
+			var stat_gif = document.location.protocol + "//stats.wordpress.com/g.gif?v=wpcom-no-pv";
+			stat_gif += "&x_ads_imp_theme=" + wpcom_adclk_theme;
+			stat_gif += "&x_ads_imp_placement="+wpcom_adclk_slot;
+			stat_gif += "&x_ads_imp_network=" + wpcom_adclk_network;
+			stat_gif += "&x_ads_imp_theme_network="+wpcom_adclk_theme+"_"+wpcom_adclk_network;
+			new Image().src = stat_gif + "&baba=" + Math.random();
+			return true;
+		}
+
+		function wpcom_adclk_click() {
+			if (wpcom_adclk_recorded) { return true; } // no double counting
+			var stat_gif = document.location.protocol + "//stats.wordpress.com/g.gif?v=wpcom-no-pv";
+			stat_gif += "&x_ads_click_theme=" + wpcom_adclk_theme;
+			stat_gif += "&x_ads_click_placement="+wpcom_adclk_slot;
+			stat_gif += "&x_ads_click_network=" + wpcom_adclk_network;
+			stat_gif += "&x_ads_click_theme_network="+wpcom_adclk_theme+"_"+wpcom_adclk_network;
+
+			new Image().src = stat_gif + "&baba=" + Math.random();
+			wpcom_adclk_recorded = true;
+			var now=new Date(); var end=now.getTime()+250;
+			while(true){now=new Date();if(now.getTime()>end){break;}}
+			return true;
+		}
+	
+if ( typeof GA_googleAddAttr == 'function' ) {
+GA_googleAddAttr("AdOpt", "1");
+GA_googleAddAttr("Origin", "other");
+GA_googleAddAttr("LangId", "438");
+GA_googleAddAttr("Domain", "edvaldocastro.com");
+GA_googleAddAttr("BlogId", "19723481");
+GA_googleAddAttr("Tag", "armazenamento");
+GA_googleAddAttr("Tag", "datafile");
+GA_googleAddAttr("Tag", "mdf");
+GA_googleAddAttr("Tag", "ndf");
+GA_googleAddAttr("theme_bg", "ffffff");
+GA_googleAddAttr("theme_text", "000000");
+GA_googleAddAttr("theme_link", "4f998d");
+GA_googleAddAttr("theme_border", "322f28");
+GA_googleAddAttr("theme_url", "ae1f10");
+GA_googleAddAdSensePageAttr("google_page_url", "http://edvaldocastro.com/2011/05/23/alterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf/");
+GA_googleFillSlot("wpcom_below_post");
+}
+</script><script src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/ads"></script><div id="google_ads_div_wpcom_below_post_ad_wrapper">
+<div id="google_ads_div_wpcom_below_post_ad_container" style="display:inline-block;"><!--/* OpenX JavaScript tag */-->
+
+<!-- /*
+ * The tag in this template has been generated for use on a
+ * non-SSL page. If this tag is to be placed on an SSL page, change the
+ * 'http://us-ads.openx.net/...'
+ * to
+ * 'https://us-ads.openx.net/...'
+ */ -->
+
+<script type="text/javascript">
+if (!window.OX_ads) { OX_ads = []; }
+OX_ads.push({ "auid" : "355525" });
+</script>
+<script type="text/javascript">
+document.write('<scr'+'ipt src="http://us-ads.openx.net/w/1.0/jstag"><\/scr'+'ipt>');
+</script><script src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/jstag"></script><script type="text/javascript" id="ox_arj_2599637249" src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/arj"></script><iframe src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/pd.htm" width="0" height="0" style="display:none;"></iframe><div id="beacon_96346755" style="position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/ri"></div><iframe id="4ec6d94f14679" name="4ec6d94f14679" src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/afr.htm" frameborder="0" scrolling="no" width="300" height="250">&lt;a href="http://psa-d.openx.com/w/1.0/rc?cs=4ec6d94f14679&amp;cb=CYLswMbArj" &gt;&lt;img src="http://psa-d.openx.com/w/1.0/ai?auid=34589&amp;cs=4ec6d94f14679&amp;amp;cb=9loHhOlnj7" border="0" alt=""&gt;&lt;/a&gt;</iframe>
+<noscript>&lt;iframe id="511edf482499c" name="511edf482499c" src="http://us-ads.openx.net/w/1.0/afr?auid=355525&amp;cb=INSERT_RANDOM_NUMBER_HERE" frameborder="0" scrolling="no" width="300" height="250"&gt;&lt;a href="http://us-ads.openx.net/w/1.0/rc?cs=511edf482499c&amp;cb=INSERT_RANDOM_NUMBER_HERE" &gt;&lt;img src="http://us-ads.openx.net/w/1.0/ai?auid=355525&amp;cs=511edf482499c&amp;cb=INSERT_RANDOM_NUMBER_HERE" border="0" alt=""&gt;&lt;/a&gt;&lt;/iframe&gt;</noscript>
+
+</div>
+</div>
+
+</div>
+<style type="text/css">
+div.wpa>div { margin-top: 1em; }
+</style>
+<script type="text/javascript">
+jQuery( window ).load( function() {
+    if ( jQuery(".wpa script[src*='shareth.ru']").length > 0 || jQuery(".wpa iframe[src*='boomvideo.tv']").length > 0 || jQuery(".wpa iframe[src*='viewablemedia.net']").length > 0 || jQuery(".wpa .sharethrough-placement").length > 0 ) {
+        jQuery( '.wpa' ).css( 'width', '400px' );
+    }
+setTimeout(function(){if(typeof GS_googleAddAdSenseService !== 'function'){new Image().src=document.location.protocol+"//stats.wordpress.com/g.gif?v=wpcom-no-pv&x_noads=adblock&baba="+Math.random()}},100);
+} );
+</script>
+<div id="jp-post-flair" class="sharedaddy sd-like-enabled sd-sharing-enabled"><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">COMPARTILHE !!!</h3><div class="sd-content"><ul><li class="share-facebook"><a rel="nofollow" class="share-facebook sd-button share-icon" href="http://edvaldocastro.com/2011/05/23/alterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf/?share=facebook&nb=1" target="_blank" title="Compartilhar no Facebook" id="sharing-facebook-24"><span>Facebook</span></a></li><li class="share-twitter"><a rel="nofollow" class="share-twitter sd-button share-icon" href="http://edvaldocastro.com/2011/05/23/alterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf/?share=twitter&nb=1" target="_blank" title="Clique para compartilhar no Twitter" id="sharing-twitter-24"><span>Twitter</span></a></li><li class="share-linkedin"><a rel="nofollow" class="share-linkedin sd-button share-icon" href="http://edvaldocastro.com/2011/05/23/alterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf/?share=linkedin&nb=1" target="_blank" title="Clique para compartilhar no LinkedIn" id="sharing-linkedin-24"><span>LinkedIn</span></a></li><li class="share-print"><a rel="nofollow" class="share-print sd-button share-icon" href="http://edvaldocastro.com/2011/05/23/alterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf/#print" target="_blank" title="Clique para imprimir"><span>Imprimir</span></a></li><li class="share-email share-service-visible"><a rel="nofollow" class="share-email sd-button share-icon" href="http://edvaldocastro.com/2011/05/23/alterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf/?share=email&nb=1" target="_blank" title="Clique para enviar por email a um amigo"><span>Email</span></a></li><li class="share-end"></li></ul></div></div></div><div class="sharedaddy sd-block sd-like jetpack-likes-widget-wrapper jetpack-likes-widget-loaded" id="like-post-wrapper-19723481-24-52273ac7d08f4" data-src="//widgets.wp.com/likes/#blog_id=19723481&amp;post_id=24&amp;origin=edvaldocastro.wordpress.com&amp;obj_id=19723481-24-52273ac7d08f4" data-name="like-post-frame-19723481-24-52273ac7d08f4"><h3 class="sd-title">Curtir isso:</h3><div class="post-likes-widget-placeholder" style="height: 55px; display: none;"><span class="button"><span>Curtir</span></span> <span class="loading">Carregando...</span></div><iframe class="post-likes-widget jetpack-likes-widget" name="like-post-frame-19723481-24-52273ac7d08f4" height="55px" width="100%" frameborder="0" src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/saved_resource.htm" style="display: inline;"></iframe><span class="sd-text-color"></span><a class="sd-link-color"></a></div></div>			</div><!-- .entry-content -->
+
+	<footer class="entry-meta">
+		Esse post foi publicado em <a href="http://edvaldocastro.com/category/armazenamento/" title="Ver todos os posts em Armazenamento" rel="category tag">Armazenamento</a> e marcado <a href="http://edvaldocastro.com/tag/datafile/" rel="tag">datafile</a>, <a href="http://edvaldocastro.com/tag/mdf/" rel="tag">mdf</a>, <a href="http://edvaldocastro.com/tag/ndf/" rel="tag">ndf</a>. Guardar <a href="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA.htm" title="Link permanente para Alterando diretório de armazenamento do arquivo de dados (.mdf / .ndf)" rel="bookmark">link permanente</a>.
+			</footer><!-- .entry-meta -->
+</article><!-- #post-24 -->
+
+				<nav id="nav-below">
+					<h1 class="section-heading">Navegação de Posts</h1>
+					<div class="nav-previous"><a href="http://edvaldocastro.com/2011/05/23/mais-um-contribuinte-casos-do-dia-a-dia-sql-server/" rel="prev"><span class="meta-nav">←</span> Mais um contribuinte  –  Casos do dia a dia – SQL&nbsp;SERVER</a></div>
+					<div class="nav-next"><a href="http://edvaldocastro.com/2011/06/17/sp_msforeachdb/" rel="next">Utilizando e personalizando o uso da&nbsp;“sp_msforeachdb”. <span class="meta-nav">→</span></a></div>
+				</nav><!-- #nav-below -->
+
+					<div id="comments">
+	
+	
+			<h2 id="comments-title">
+			4 respostas para <em>Alterando diretório de armazenamento do arquivo de dados (.mdf /&nbsp;.ndf)</em>		</h2>
+
+		
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1 highlander-comment" id="li-comment-2">
+		<article id="comment-2" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/9b00aa2fd4ea8d09ccf4caf33ca5723b" class="avatar avatar-40 grav-hashed grav-hijack" height="40" width="40" id="grav-9b00aa2fd4ea8d09ccf4caf33ca5723b-0">					<cite class="fn">Evanio Mineiro</cite> <span class="says">disse:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="http://edvaldocastro.com/2011/05/23/alterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf/#comment-2"><time pubdate="" datetime="2011-05-23T03:37:47+00:00">
+					23 de maio de 2011 às 03:37					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Legal a dica, muito útil.<br>
+Aguardarei outras!!<br>
+flw</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://edvaldocastro.com/2011/05/23/alterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf/?replytocom=2#respond" onclick="return addComment.moveForm(&quot;comment-2&quot;, &quot;2&quot;, &quot;respond&quot;, &quot;24&quot;)">Resposta</a>			</div><!-- .reply -->
+		</article><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1 highlander-comment" id="li-comment-5">
+		<article id="comment-5" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/c52b7eb31059adfbc6b17cc023a44dca" class="avatar avatar-40 grav-hashed grav-hijack" height="40" width="40" id="grav-c52b7eb31059adfbc6b17cc023a44dca-0">					<cite class="fn">Salim</cite> <span class="says">disse:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="http://edvaldocastro.com/2011/05/23/alterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf/#comment-5"><time pubdate="" datetime="2011-06-17T12:22:33+00:00">
+					17 de junho de 2011 às 12:22					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Muto bom, muito bem explicado. Parabéns!!!!</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://edvaldocastro.com/2011/05/23/alterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf/?replytocom=5#respond" onclick="return addComment.moveForm(&quot;comment-5&quot;, &quot;5&quot;, &quot;respond&quot;, &quot;24&quot;)">Resposta</a>			</div><!-- .reply -->
+		</article><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1 highlander-comment" id="li-comment-7">
+		<article id="comment-7" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/d39ae55df419284501d7a89f4752238b" class="avatar avatar-40 grav-hashed grav-hijack" height="40" width="40" id="grav-d39ae55df419284501d7a89f4752238b-0">					<cite class="fn"><a href="http://www.merazzi.eti.br/" rel="external nofollow" class="url">Logan Destefani Merazzi</a></cite> <span class="says">disse:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="http://edvaldocastro.com/2011/05/23/alterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf/#comment-7"><time pubdate="" datetime="2011-06-29T22:13:49+00:00">
+					29 de junho de 2011 às 22:13					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Parabéns pelo post, muito bem escrito.<br>
+Só fiquei com uma dúvida… você fala para dar um Take Offline e um Bring Online.<br>
+Existe algum problema no uso do detach, mover os arquivos e depois dar um atach?</p>
+<p>[]‘s</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://edvaldocastro.com/2011/05/23/alterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf/?replytocom=7#respond" onclick="return addComment.moveForm(&quot;comment-7&quot;, &quot;7&quot;, &quot;respond&quot;, &quot;24&quot;)">Resposta</a>			</div><!-- .reply -->
+		</article><!-- #comment-##  -->
+
+	<ul class="children">
+	<li class="comment byuser comment-author-edvaldocastro bypostauthor odd alt depth-2 highlander-comment" id="li-comment-8">
+		<article id="comment-8" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/40a33c80fcefe4cb081e913f425dfdbf" class="avatar avatar-40 grav-hashed grav-hijack" height="40" width="40" id="grav-40a33c80fcefe4cb081e913f425dfdbf-0">					<cite class="fn"><a href="http://edvaldocastro.wordpress.com/" rel="external nofollow" class="url">Edvaldo Castro</a></cite> <span class="says">disse:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="http://edvaldocastro.com/2011/05/23/alterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf/#comment-8"><time pubdate="" datetime="2011-07-03T04:00:54+00:00">
+					3 de julho de 2011 às 04:00					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Ola Logan,</p>
+<p>Obrigado pelo comentario… </p>
+<p>No momento estou me recuperando de uma cirurgia e nao tenho acesso as minhas VMs, mas acredito que o dettach/attach nao deve funcionar por conta dos apontamentos dentro do SGDB… Vou fazer alguns testes e te dou um retorno melhor…</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://edvaldocastro.com/2011/05/23/alterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf/?replytocom=8#respond" onclick="return addComment.moveForm(&quot;comment-8&quot;, &quot;8&quot;, &quot;respond&quot;, &quot;24&quot;)">Resposta</a>			</div><!-- .reply -->
+		</article><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		</ol>
+
+		
+	
+									<div id="respond" class="comment-respond js">
+				<h3 id="reply-title" class="comment-reply-title">Por favor, deixe seu comentário sobre o que você acabou de ler... <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://edvaldocastro.com/2011/05/23/alterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf/#respond" style="display:none;">Cancelar resposta</a></small></h3>
+									<form action="http://edvaldocastro.com/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+																										
+
+
+												<input type="hidden" id="highlander_comment_nonce" name="highlander_comment_nonce" value="dd5c38fb1f"><input type="hidden" name="_wp_http_referer" value="/2011/05/23/alterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf/">
+<input type="hidden" name="hc_post_as" id="hc_post_as" value="guest">
+
+<div class="comment-form-field comment-textarea">
+	
+	<div id="comment-form-comment"><textarea title="Escreva o seu comentário aqui..." placeholder="Escreva o seu comentário aqui..." style="height: 36px; resize: none; overflow-y: hidden; position: absolute; top: 0px; left: -9999px; width: 516px; line-height: normal; text-decoration: none; letter-spacing: 0px;" tabindex="-1" aria-hidden="true"></textarea><textarea id="comment" name="comment" title="Escreva o seu comentário aqui..." placeholder="Escreva o seu comentário aqui..." style="height: 36px; resize: none; overflow-y: hidden;"></textarea></div>
+</div>
+
+<div id="comment-form-identity" style="display: none;">
+
+	<div id="comment-form-nascar">
+		<p>Preencha os seus dados abaixo ou clique em um ícone para log in:</p>
+		<ul>
+			<li class="selected" style="display:none;">
+				<a href="http://edvaldocastro.com/2011/05/23/alterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf/#comment-form-guest" id="postas-guest" title="Convidado">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="http://edvaldocastro.com/2011/05/23/alterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf/#comment-form-load-service:WordPress.com" id="postas-wordpress" title="WordPress.com">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="http://edvaldocastro.com/2011/05/23/alterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf/#comment-form-load-service:Twitter" id="postas-twitter" title="Twitter">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="http://edvaldocastro.com/2011/05/23/alterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf/#comment-form-load-service:Facebook" id="postas-facebook" title="Facebook">
+					<span></span>
+				</a>
+			</li>
+		</ul>
+	</div>
+
+	<div id="comment-form-guest" class="comment-form-service selected">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+<a href="https://gravatar.com/site/signup/" target="_blank">				<img src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/mu.gif" alt="Gravatar" width="25" class="no-grav">
+</a>			</div>
+
+				<div class="comment-form-fields">
+				<div class="comment-form-field comment-form-email">
+					<label for="email">Email <span class="required">(obrigatório)</span> <span class="nopublish">(Seu endereço nunca será divulgado)</span></label>
+					<div class="comment-form-input"><input id="email" name="email" type="email" value=""></div>
+				</div>
+				<div class="comment-form-field comment-form-author">
+					<label for="author">Nome <span class="required">(obrigatório)</span></label>
+					<div class="comment-form-input"><input id="author" name="author" type="text" value=""></div>
+				</div>
+				<div class="comment-form-field comment-form-url">
+					<label for="url">Site</label>
+					<div class="comment-form-input"><input id="url" name="url" type="text" value=""></div>
+				</div>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-wordpress" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/wplogo.png" alt="WordPress.com Logo" width="25" class="no-grav">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="wp_avatar" id="wordpress-avatar" class="comment-meta-wordpress" value="">
+				<input type="hidden" name="wp_user_id" id="wordpress-user_id" class="comment-meta-wordpress" value="">
+				<input type="hidden" name="wp_access_token" id="wordpress-access_token" class="comment-meta-wordpress" value="">
+				<p class="comment-form-posting-as pa-wordpress"><strong></strong> Você está comentando usando sua conta WordPress.com. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'wordpress' );">Sair</a>&nbsp;/&nbsp;<a href="http://edvaldocastro.com/2011/05/23/alterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf/#" onclick="javascript:HighlanderComments.switchAccount();return false;">Mudar</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-twitter" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/mu.gif" alt="Imagem do Twitter" width="25" class="no-grav">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="twitter_avatar" id="twitter-avatar" class="comment-meta-twitter" value="">
+				<input type="hidden" name="twitter_user_id" id="twitter-user_id" class="comment-meta-twitter" value="">
+				<input type="hidden" name="twitter_access_token" id="twitter-access_token" class="comment-meta-twitter" value="">
+				<p class="comment-form-posting-as pa-twitter"><strong></strong> Você está comentando usando sua conta Twitter. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'twitter' );">Sair</a>&nbsp;/&nbsp;<a href="http://edvaldocastro.com/2011/05/23/alterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf/#" onclick="javascript:HighlanderComments.switchAccount();return false;">Mudar</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-facebook" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/mu.gif" alt="Foto do Facebook" width="25" class="no-grav">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="fb_avatar" id="facebook-avatar" class="comment-meta-facebook" value="">
+				<input type="hidden" name="fb_user_id" id="facebook-user_id" class="comment-meta-facebook" value="">
+				<input type="hidden" name="fb_access_token" id="facebook-access_token" class="comment-meta-facebook" value="">
+				<p class="comment-form-posting-as pa-facebook"><strong></strong> Você está comentando usando sua conta Facebook. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'facebook' );">Sair</a>&nbsp;/&nbsp;<a href="http://edvaldocastro.com/2011/05/23/alterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf/#" onclick="javascript:HighlanderComments.switchAccount();return false;">Mudar</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+
+	<div id="comment-form-load-service" class="comment-form-service">
+		<div class="comment-form-posting-as-cancel"><a href="javascript:HighlanderComments.cancelExternalWindow();">Cancelar</a></div>
+		<p>Conectando a %s</p>
+	</div>
+
+	
+</div>
+
+<script type="text/javascript">
+var highlander_expando_javascript = function(){
+	var input = document.createElement( 'input' ),
+	    comment = jQuery( '#comment' );
+
+	if ( 'placeholder' in input ) {
+		comment.attr( 'placeholder', jQuery( '.comment-textarea label' ).remove().text() );
+	}
+
+	// Expando Mode: start small, then auto-resize on first click + text length
+	jQuery( '#comment-form-identity' ).hide();
+	jQuery( '#comment-form-subscribe' ).hide();
+	jQuery( '#commentform .form-submit' ).hide();
+
+	comment.css( { 'height':'10px' } ).one( 'focus', function() {
+		var timer = setInterval( HighlanderComments.resizeCallback, 10 )
+		jQuery( this ).animate( { 'height': HighlanderComments.initialHeight } ).delay( 100 ).queue( function(n) { clearInterval( timer ); HighlanderComments.resizeCallback(); n(); } );
+		jQuery( '#comment-form-identity' ).slideDown();
+		jQuery( '#comment-form-subscribe' ).slideDown();
+		jQuery( '#commentform .form-submit' ).slideDown();
+	});
+}
+jQuery(document).ready( highlander_expando_javascript );
+</script>
+
+<div id="comment-form-subscribe" style="display: none;">
+	<p class="comment-subscription-form"><input type="checkbox" name="subscribe" id="subscribe" value="subscribe" style="width: auto;" tabindex="6"> <label class="subscribe-label" id="subscribe-label" for="subscribe" style="display: inline;">Avise-me sobre comentários seguintes por email.</label></p><p class="post-subscription-form"><input type="checkbox" name="subscribe_blog" id="subscribe_blog" value="subscribe" style="width: auto;" tabindex="7"> <label class="subscribe-label" id="subscribe-blog-label" for="subscribe_blog" style="display: inline;">Avise-me sobre novas publicações por e-mail.</label></p></div>
+
+												<p class="form-submit" style="display: none;">
+							<input name="submit" type="submit" id="comment-submit" value="Publicar comentário">
+							<input type="hidden" name="comment_post_ID" value="24" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+						</p>
+						
+<input type="hidden" name="genseq" value="1378302663">
+<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="cc649a3086"></p><script type="text/javascript" src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/form.js"></script>
+<p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="1378302666335"></p>					</form>
+							</div><!-- #respond -->
+			<div style="clear: both"></div>			
+</div><!-- #comments -->
+			
+			</div><!-- #content -->
+		</div><!-- #primary -->
+
+		<div id="secondary" class="widget-area" role="complementary">
+								<aside id="recent-posts-3" class="widget widget_recent_entries">		<h1 class="widget-title">Últimos Posts</h1>		<ul>
+					<li>
+				<a href="http://edvaldocastro.com/2013/07/27/rcsi-2/" title="READ COMMITTED SNAPSHOT ISOLATION – Aprecie com moderação">READ COMMITTED SNAPSHOT ISOLATION – Aprecie com&nbsp;moderação</a>
+						</li>
+					<li>
+				<a href="http://edvaldocastro.com/2013/07/11/auxilio-na-coleta-de-dados/" title="Auxílio na coleta de dados">Auxílio na coleta de&nbsp;dados</a>
+						</li>
+					<li>
+				<a href="http://edvaldocastro.com/2013/06/21/sql_2014/" title="SQL Server® 2014 CTP1 Product Guide">SQL Server® 2014 CTP1 Product&nbsp;Guide</a>
+						</li>
+					<li>
+				<a href="http://edvaldocastro.com/2013/06/20/sqlsat245/" title="SQL Saturday #245 – Rio de Janeiro">SQL Saturday #245 – Rio de&nbsp;Janeiro</a>
+						</li>
+					<li>
+				<a href="http://edvaldocastro.com/2013/05/10/sql-server-server-side-trace-operacao/" title="SQL Server – Server Side Trace – Operação">SQL Server – Server Side Trace –&nbsp;Operação</a>
+						</li>
+				</ul>
+		</aside><aside id="wp_tag_cloud-2" class="widget wp_widget_tag_cloud"><h1 class="widget-title">Principais Tags</h1><div style="overflow:hidden"><a href="http://edvaldocastro.com/tag/2014/" class="tag-link-1173184" title="1 tópico" style="font-size: 8pt;">2014</a>
+<a href="http://edvaldocastro.com/tag/alwayson/" class="tag-link-675638" title="1 tópico" style="font-size: 8pt;">AlwaysOn</a>
+<a href="http://edvaldocastro.com/tag/backup/" class="tag-link-5469" title="9 tópicos" style="font-size: 17.074074074074pt;">Backup</a>
+<a href="http://edvaldocastro.com/tag/banco-de-dados/" class="tag-link-4827" title="5 tópicos" style="font-size: 14.222222222222pt;">banco de dados</a>
+<a href="http://edvaldocastro.com/tag/bulk-logged/" class="tag-link-30814982" title="1 tópico" style="font-size: 8pt;">Bulk-Logged</a>
+<a href="http://edvaldocastro.com/tag/carreira/" class="tag-link-71362" title="2 tópicos" style="font-size: 10.333333333333pt;">Carreira</a>
+<a href="http://edvaldocastro.com/tag/columnstore-index/" class="tag-link-59240485" title="1 tópico" style="font-size: 8pt;">ColumnStore Index</a>
+<a href="http://edvaldocastro.com/tag/community-zone/" class="tag-link-2564520" title="1 tópico" style="font-size: 8pt;">Community Zone</a>
+<a href="http://edvaldocastro.com/tag/comunidade/" class="tag-link-16379" title="3 tópicos" style="font-size: 11.888888888889pt;">Comunidade</a>
+<a href="http://edvaldocastro.com/tag/cz2012/" class="tag-link-78978062" title="1 tópico" style="font-size: 8pt;">CZ2012</a>
+<a href="http://edvaldocastro.com/tag/datafile/" class="tag-link-479828" title="1 tópico" style="font-size: 8pt;">datafile</a>
+<a href="http://edvaldocastro.com/tag/desafio/" class="tag-link-776376" title="1 tópico" style="font-size: 8pt;">desafio</a>
+<a href="http://edvaldocastro.com/tag/diferencial/" class="tag-link-344631" title="2 tópicos" style="font-size: 10.333333333333pt;">diferencial</a>
+<a href="http://edvaldocastro.com/tag/differential-backup/" class="tag-link-4296149" title="3 tópicos" style="font-size: 11.888888888889pt;">differential backup</a>
+<a href="http://edvaldocastro.com/tag/documentacao/" class="tag-link-194427" title="1 tópico" style="font-size: 8pt;">documentação</a>
+<a href="http://edvaldocastro.com/tag/evento/" class="tag-link-16596" title="11 tópicos" style="font-size: 18.111111111111pt;">Evento</a>
+<a href="http://edvaldocastro.com/tag/filestream-sqlserver-armazenamento/" class="tag-link-62939103" title="1 tópico" style="font-size: 8pt;">FileStream SQLSERVER Armazenamento</a>
+<a href="http://edvaldocastro.com/tag/forg/" class="tag-link-4346237" title="2 tópicos" style="font-size: 10.333333333333pt;">FoRG</a>
+<a href="http://edvaldocastro.com/tag/friends-of-redgate/" class="tag-link-142463228" title="2 tópicos" style="font-size: 10.333333333333pt;">Friends of RedGate</a>
+<a href="http://edvaldocastro.com/tag/full/" class="tag-link-50636" title="3 tópicos" style="font-size: 11.888888888889pt;">full</a>
+<a href="http://edvaldocastro.com/tag/isolation-level/" class="tag-link-8406059" title="1 tópico" style="font-size: 8pt;">isolation level</a>
+<a href="http://edvaldocastro.com/tag/log/" class="tag-link-12657" title="2 tópicos" style="font-size: 10.333333333333pt;">log</a>
+<a href="http://edvaldocastro.com/tag/mcitpsc/" class="tag-link-60405943" title="1 tópico" style="font-size: 8pt;">MCITPSC</a>
+<a href="http://edvaldocastro.com/tag/mdf/" class="tag-link-251722" title="1 tópico" style="font-size: 8pt;">mdf</a>
+<a href="http://edvaldocastro.com/tag/microsoft/" class="tag-link-637" title="2 tópicos" style="font-size: 10.333333333333pt;">microsoft</a>
+<a href="http://edvaldocastro.com/tag/mudanca/" class="tag-link-190464" title="1 tópico" style="font-size: 8pt;">mudanca</a>
+<a href="http://edvaldocastro.com/tag/ndf/" class="tag-link-1637840" title="1 tópico" style="font-size: 8pt;">ndf</a>
+<a href="http://edvaldocastro.com/tag/off-topic-2/" class="tag-link-34987521" title="1 tópico" style="font-size: 8pt;">off topic</a>
+<a href="http://edvaldocastro.com/tag/oracle/" class="tag-link-3766" title="1 tópico" style="font-size: 8pt;">Oracle</a>
+<a href="http://edvaldocastro.com/tag/pass/" class="tag-link-322701" title="7 tópicos" style="font-size: 15.777777777778pt;">Pass</a>
+<a href="http://edvaldocastro.com/tag/politica-de-backup/" class="tag-link-10009721" title="7 tópicos" style="font-size: 15.777777777778pt;">Política de Backup</a>
+<a href="http://edvaldocastro.com/tag/profiler/" class="tag-link-86071" title="1 tópico" style="font-size: 8pt;">Profiler</a>
+<a href="http://edvaldocastro.com/tag/rcsi/" class="tag-link-770174" title="1 tópico" style="font-size: 8pt;">rcsi</a>
+<a href="http://edvaldocastro.com/tag/read-committed-snapshot/" class="tag-link-36625416" title="1 tópico" style="font-size: 8pt;">read committed snapshot</a>
+<a href="http://edvaldocastro.com/tag/read-committed-snapshot-isolation/" class="tag-link-187059789" title="1 tópico" style="font-size: 8pt;">read committed snapshot isolation</a>
+<a href="http://edvaldocastro.com/tag/recovery-model/" class="tag-link-3043842" title="1 tópico" style="font-size: 8pt;">Recovery Model</a>
+<a href="http://edvaldocastro.com/tag/rio-de-janeiro/" class="tag-link-190082" title="1 tópico" style="font-size: 8pt;">rio de janeiro</a>
+<a href="http://edvaldocastro.com/tag/seguranca/" class="tag-link-21243" title="4 tópicos" style="font-size: 13.185185185185pt;">Segurança</a>
+<a href="http://edvaldocastro.com/tag/server-side-trace/" class="tag-link-26964722" title="1 tópico" style="font-size: 8pt;">Server Side Trace</a>
+<a href="http://edvaldocastro.com/tag/simple/" class="tag-link-14609" title="1 tópico" style="font-size: 8pt;">Simple</a>
+<a href="http://edvaldocastro.com/tag/sqlsat100/" class="tag-link-75842501" title="1 tópico" style="font-size: 8pt;">SQLSAT100</a>
+<a href="http://edvaldocastro.com/tag/sqlsat127/" class="tag-link-80934012" title="3 tópicos" style="font-size: 11.888888888889pt;">sqlsat127</a>
+<a href="http://edvaldocastro.com/tag/sqlsat147/" class="tag-link-102052660" title="1 tópico" style="font-size: 8pt;">sqlsat147</a>
+<a href="http://edvaldocastro.com/tag/sqlsat245/" class="tag-link-177012705" title="1 tópico" style="font-size: 8pt;">sqlsat245</a>
+<a href="http://edvaldocastro.com/tag/sql-saturday-100/" class="tag-link-68319688" title="1 tópico" style="font-size: 8pt;">SQL SATURDAY 100</a>
+<a href="http://edvaldocastro.com/tag/sql-saturday-127/" class="tag-link-80934013" title="2 tópicos" style="font-size: 10.333333333333pt;">SQL SATURDAY 127</a>
+<a href="http://edvaldocastro.com/tag/sql-saturday-245/" class="tag-link-177012691" title="1 tópico" style="font-size: 8pt;">SQL Saturday 245</a>
+<a href="http://edvaldocastro.com/tag/sqlserver/" class="tag-link-86759" title="4 tópicos" style="font-size: 13.185185185185pt;">sqlserver</a>
+<a href="http://edvaldocastro.com/tag/sql-server/" class="tag-link-6407" title="22 tópicos" style="font-size: 21.740740740741pt;">SQL SERVER</a>
+<a href="http://edvaldocastro.com/tag/sqlserver2014/" class="tag-link-173177425" title="1 tópico" style="font-size: 8pt;">sqlserver2014</a>
+<a href="http://edvaldocastro.com/tag/sql-server-df/" class="tag-link-125586886" title="4 tópicos" style="font-size: 13.185185185185pt;">SQL Server DF</a>
+<a href="http://edvaldocastro.com/tag/sqlserverdf/" class="tag-link-117353451" title="2 tópicos" style="font-size: 10.333333333333pt;">sqlserverdf</a>
+<a href="http://edvaldocastro.com/tag/sqlserverrs/" class="tag-link-68848178" title="1 tópico" style="font-size: 8pt;">SQLServerRS</a>
+<a href="http://edvaldocastro.com/tag/sql-trace/" class="tag-link-3723766" title="2 tópicos" style="font-size: 10.333333333333pt;">SQL Trace</a>
+<a href="http://edvaldocastro.com/tag/trace/" class="tag-link-355983" title="2 tópicos" style="font-size: 10.333333333333pt;">Trace</a>
+<a href="http://edvaldocastro.com/tag/transaction-log/" class="tag-link-1548885" title="2 tópicos" style="font-size: 10.333333333333pt;">transaction log</a>
+<a href="http://edvaldocastro.com/tag/virtualpass/" class="tag-link-56203579" title="2 tópicos" style="font-size: 10.333333333333pt;">VirtualPass</a>
+<a href="http://edvaldocastro.com/tag/virtual-pass-2/" class="tag-link-116991149" title="6 tópicos" style="font-size: 15.12962962963pt;">virtual pass</a>
+<a href="http://edvaldocastro.com/tag/virtual-pass-br/" class="tag-link-54714606" title="23 tópicos" style="font-size: 22pt;">Virtual Pass Br</a>
+<a href="http://edvaldocastro.com/tag/virtual-pass-pt/" class="tag-link-116890603" title="1 tópico" style="font-size: 8pt;">Virtual Pass PT</a>
+<a href="http://edvaldocastro.com/tag/virtualpasspt/" class="tag-link-177544767" title="1 tópico" style="font-size: 8pt;">VirtualPassPT</a>
+<a href="http://edvaldocastro.com/tag/webcast/" class="tag-link-65726" title="1 tópico" style="font-size: 8pt;">Webcast</a>
+<a href="http://edvaldocastro.com/tag/ws2012/" class="tag-link-75795558" title="1 tópico" style="font-size: 8pt;">ws2012</a></div></aside><aside id="categories-3" class="widget widget_categories"><h1 class="widget-title">Blogs por categoria</h1>		<ul>
+	<li class="cat-item cat-item-37528"><a href="http://edvaldocastro.com/category/administracao/" title="Ver todos os posts arquivados em Administração">Administração</a>
+</li>
+	<li class="cat-item cat-item-285500"><a href="http://edvaldocastro.com/category/armazenamento/" title="Ver todos os posts arquivados em Armazenamento">Armazenamento</a>
+</li>
+	<li class="cat-item cat-item-5469"><a href="http://edvaldocastro.com/category/armazenamento/backup/" title="Ver todos os posts arquivados em Backup">Backup</a>
+</li>
+	<li class="cat-item cat-item-2366"><a href="http://edvaldocastro.com/category/off-topic/eventos/" title="Ver todos os posts arquivados em Eventos">Eventos</a>
+</li>
+	<li class="cat-item cat-item-1184"><a href="http://edvaldocastro.com/category/off-topic/" title="Ver todos os posts arquivados em Off Topic">Off Topic</a>
+</li>
+	<li class="cat-item cat-item-3766"><a href="http://edvaldocastro.com/category/oracle/" title="Ver todos os posts arquivados em Oracle">Oracle</a>
+</li>
+	<li class="cat-item cat-item-4493"><a href="http://edvaldocastro.com/category/scripts/" title="Scripts utilizados no cotidiano para auxilio na administração do SQL SERVER.">Scripts</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://edvaldocastro.com/category/uncategorized/" title="Ver todos os posts arquivados em Uncategorized">Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-58942206"><a href="http://edvaldocastro.com/category/virtual-pass/" title="Ver todos os posts arquivados em Virtual Pass">Virtual Pass</a>
+</li>
+		</ul>
+</aside><aside id="archives-3" class="widget widget_archive"><h1 class="widget-title">Arquivos</h1>		<ul>
+			<li><a href="http://edvaldocastro.com/2013/07/" title="julho 2013">julho 2013</a>&nbsp;(2)</li>
+	<li><a href="http://edvaldocastro.com/2013/06/" title="junho 2013">junho 2013</a>&nbsp;(2)</li>
+	<li><a href="http://edvaldocastro.com/2013/05/" title="maio 2013">maio 2013</a>&nbsp;(1)</li>
+	<li><a href="http://edvaldocastro.com/2013/04/" title="abril 2013">abril 2013</a>&nbsp;(2)</li>
+	<li><a href="http://edvaldocastro.com/2013/03/" title="março 2013">março 2013</a>&nbsp;(3)</li>
+	<li><a href="http://edvaldocastro.com/2013/02/" title="fevereiro 2013">fevereiro 2013</a>&nbsp;(1)</li>
+	<li><a href="http://edvaldocastro.com/2013/01/" title="janeiro 2013">janeiro 2013</a>&nbsp;(2)</li>
+	<li><a href="http://edvaldocastro.com/2012/12/" title="dezembro 2012">dezembro 2012</a>&nbsp;(2)</li>
+	<li><a href="http://edvaldocastro.com/2012/11/" title="novembro 2012">novembro 2012</a>&nbsp;(2)</li>
+	<li><a href="http://edvaldocastro.com/2012/10/" title="outubro 2012">outubro 2012</a>&nbsp;(2)</li>
+	<li><a href="http://edvaldocastro.com/2012/09/" title="setembro 2012">setembro 2012</a>&nbsp;(1)</li>
+	<li><a href="http://edvaldocastro.com/2012/08/" title="agosto 2012">agosto 2012</a>&nbsp;(2)</li>
+	<li><a href="http://edvaldocastro.com/2012/07/" title="julho 2012">julho 2012</a>&nbsp;(1)</li>
+	<li><a href="http://edvaldocastro.com/2012/06/" title="junho 2012">junho 2012</a>&nbsp;(1)</li>
+	<li><a href="http://edvaldocastro.com/2012/05/" title="maio 2012">maio 2012</a>&nbsp;(1)</li>
+	<li><a href="http://edvaldocastro.com/2012/04/" title="abril 2012">abril 2012</a>&nbsp;(1)</li>
+	<li><a href="http://edvaldocastro.com/2012/03/" title="março 2012">março 2012</a>&nbsp;(1)</li>
+	<li><a href="http://edvaldocastro.com/2012/02/" title="fevereiro 2012">fevereiro 2012</a>&nbsp;(3)</li>
+	<li><a href="http://edvaldocastro.com/2012/01/" title="janeiro 2012">janeiro 2012</a>&nbsp;(3)</li>
+	<li><a href="http://edvaldocastro.com/2011/12/" title="dezembro 2011">dezembro 2011</a>&nbsp;(1)</li>
+	<li><a href="http://edvaldocastro.com/2011/11/" title="novembro 2011">novembro 2011</a>&nbsp;(1)</li>
+	<li><a href="http://edvaldocastro.com/2011/08/" title="agosto 2011">agosto 2011</a>&nbsp;(1)</li>
+	<li><a href="http://edvaldocastro.com/2011/06/" title="junho 2011">junho 2011</a>&nbsp;(1)</li>
+	<li><a href="http://edvaldocastro.com/2011/05/" title="maio 2011">maio 2011</a>&nbsp;(2)</li>
+		</ul>
+</aside><aside id="blog_subscription-3" class="widget widget_blog_subscription"><h1 class="widget-title"><label for="subscribe-field">Follow Blog via Email</label></h1>
+			<form action="https://subscribe.wordpress.com/" method="post" accept-charset="utf-8" id="subscribe-blog">
+									<p>Digite seu endereço de email para acompanhar esse blog e receber notificações de novos posts por email.</p>
+<p>Junte-se a 346 outros seguidores</p>
+					<p><input type="text" name="email" style="width: 95%; padding: 1px 2px" value="" id="subscribe-field"></p>
+				
+				<p>
+					<input type="hidden" name="action" value="subscribe">
+					<input type="hidden" name="blog_id" value="19723481">
+					<input type="hidden" name="source" value="http://edvaldocastro.com/2011/05/23/alterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf/">
+					<input type="hidden" name="sub-type" value="widget">
+					<input type="hidden" name="redirect_fragment" value="blog_subscription-3">
+					<input type="hidden" id="_wpnonce" name="_wpnonce" value="93aae6b7b8">					<input type="submit" value="Siga meu Blog">
+				</p>
+			</form>
+			
+</aside>		</div><!-- #secondary .widget-area -->
+
+		
+	</div><!-- #main -->
+
+	<footer id="colophon" role="contentinfo">
+			<div id="site-generator">
+				<a href="http://pt-br.wordpress.com/?ref=footer" rel="generator">Blog no WordPress.com</a>.<span class="sep"> | </span><a href="http://theme.wordpress.com/themes/rusty-grunge/" title="Saiba mais sobre este tema">The Rusty Grunge Theme</a>.  			</div>
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+
+<script type="text/javascript">
+var _qevents = _qevents || [], wpcomQuantcastData = {"qacct":"p-18-mFEk4J448M","labels":",language.pt-br,type.wpcom,posttag.datafile,posttag.mdf,posttag.ndf,as"};
+function wpcomQuantcastPixel( labels, options ) {
+	var i, defaults = wpcomQuantcastData, data = { event: 'ajax' };
+
+	labels  = labels  || '';
+	options = options || {};
+
+	if ( typeof labels != 'string' )
+		options = labels;
+
+	for ( i in defaults ) {
+		data[i] = defaults[i];
+	}
+
+	for ( i in options ) {
+		data[i] = options[i];
+	}
+
+	if ( data.labels ) {
+		data.labels += ',' + labels;
+	} else {
+		data.labels = labels;
+	}
+
+	_qevents.push( data );
+};
+(function() {var elem = document.createElement('script');elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";elem.async = true;elem.type = "text/javascript";var scpt = document.getElementsByTagName('script')[0];scpt.parentNode.insertBefore(elem, scpt);  })();
+_qevents.push( wpcomQuantcastData );
+</script>
+<noscript>&lt;div style="display: none;"&gt;&lt;img src="//pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif?labels=%2Clanguage.pt-br%2Ctype.wpcom%2Cposttag.datafile%2Cposttag.mdf%2Cposttag.ndf%2Cas" height="1" width="1" alt="" /&gt;&lt;/div&gt;</noscript>
+
+<script type="text/javascript" src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/gprofiles.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/wpgroho.js"></script>
+<script>jQuery(document).ready(function($){ Gravatar.profile_cb = function( h, d ) { WPGroHo.syncProfileData( h, d );	}; Gravatar.my_hash = WPGroHo.my_hash; Gravatar.init( 'body', '#wp-admin-bar-my-account' ); });</script>	<div style="display:none">
+	<div class="grofile-hash-map-9b00aa2fd4ea8d09ccf4caf33ca5723b">
+	</div>
+	<div class="grofile-hash-map-c52b7eb31059adfbc6b17cc023a44dca">
+	</div>
+	<div class="grofile-hash-map-d39ae55df419284501d7a89f4752238b">
+	</div>
+	<div class="grofile-hash-map-40a33c80fcefe4cb081e913f425dfdbf">
+	</div>
+	</div>
+<script type="text/javascript">
+/* <![CDATA[ */
+var HighlanderComments = {"loggingInText":"Logging In\u2026","submittingText":"Posting Comment\u2026","postCommentText":"Publicar coment\u00e1rio","connectingToText":"Conectando a %s","commentingAsText":"%1$s: Voc\u00ea est\u00e1 comentando usando a conta %2$s.","logoutText":"Logout","loginText":"Entrar","connectURL":"http:\/\/edvaldocastro.wordpress.com\/public.api\/connect\/?action=request","logoutURL":"http:\/\/edvaldocastro.wordpress.com\/wp-login.php?action=logout&_wpnonce=c4023cd7c4","homeURL":"http:\/\/edvaldocastro.com\/","postID":"24","gravDefault":"blank","enterACommentError":"Por favor escreva um coment\u00e1rio","enterEmailError":"Insira seu endere\u00e7o de e-mail aqui","invalidEmailError":"Email inv\u00e1lido","enterAuthorError":"Digitar o seu nome aqui","gravatarFromEmail":"Essa foto aparecer\u00e1 sempre que voc\u00ea deixar um coment\u00e1rio. Clicar para personaliz\u00e1-la.","logInToExternalAccount":"Fa\u00e7a login para usar detalhes de uma de suas conta.","change":"Mudar","changeAccount":"Alterar Conta","comment_registration":"","userIsLoggedIn":"","isJetpack":"0"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/saved_resource(3)"></script>
+
+	<div id="bit" class="loggedout-follow-normal" style="bottom: -281px;">
+		<a class="bsub" href="javascript:void(0)"><span id="bsub-text">Seguir</span></a>
+		<div id="bitsubscribe">
+
+					<h3><label for="loggedout-follow-field">Seguir “EDVALDO CASTRO - DBA”</label></h3>
+
+			<form action="https://subscribe.wordpress.com/" method="post" accept-charset="utf-8" id="loggedout-follow">
+			<p>Obtenha todo post novo entregue na sua caixa de entrada.</p>
+
+			<p id="loggedout-follow-error" style="display: none;"></p>
+
+						<p class="bit-follow-count">Junte-se a 346 outros seguidores</p>
+			<p><input type="email" name="email" style="width: 95%; padding: 1px 2px" value="Insira seu endereço de e-mail" onfocus="this.value=(this.value==&quot;Insira seu endereço de e-mail&quot;) ? &quot;&quot; : this.value;" onblur="this.value=(this.value==&quot;&quot;) ? &quot;Enter email address&quot; : this.value;" id="loggedout-follow-field"></p>
+
+			<input type="hidden" name="action" value="subscribe">
+			<input type="hidden" name="blog_id" value="19723481">
+			<input type="hidden" name="source" value="http://edvaldocastro.com/2011/05/23/alterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf/">
+			<input type="hidden" name="sub-type" value="loggedout-follow">
+
+			<input type="hidden" id="_wpnonce" name="_wpnonce" value="93aae6b7b8"><input type="hidden" name="_wp_http_referer" value="/2011/05/23/alterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf/">
+			<p id="bsub-subscribe-button"><input type="submit" value="Cadastre-me"></p>
+			</form>
+					<div id="bsub-credit"><a href="http://wordpress.com/signup/?ref=lof">Tecnologia WordPress.com</a></div>
+		</div><!-- #bitsubscribe -->
+	</div><!-- #bit -->
+
+	<script type="text/javascript">
+		WPCOM_sharing_counts = {"http:\/\/edvaldocastro.com\/2011\/05\/23\/alterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf\/":24}	</script>
+		<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-facebook' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-twitter' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-linkedin' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomlinkedin', 'menubar=1,resizable=1,width=580,height=450' );
+				return false;
+			});
+		});
+		</script>
+			<div id="sharing_email" style="display: none;">
+		<form action="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA.htm" method="post">
+			<label for="target_email">Enviar para o Endereço de Email</label>
+			<input type="text" name="target_email" id="target_email" value="">
+
+			
+				<label for="source_name">Seu Nome</label>
+				<input type="text" name="source_name" id="source_name" value="">
+
+				<label for="source_email">Seu Endereço de Email</label>
+				<input type="text" name="source_email" id="source_email" value="">
+
+			
+			<div class="recaptcha" id="sharing_recaptcha"></div><input type="hidden" name="recaptcha_public_key" id="recaptcha_public_key" value="6LcYW8MSAAAAADBAuEH9yaPcF7lWh11Iq62ZKtoo">
+			<img style="float: right; display: none" class="loading" src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/loading.gif" alt="loading" width="16" height="16">
+			<input type="submit" value="Enviar Email" class="sharing_send">
+			<a href="http://edvaldocastro.com/2011/05/23/alterar-diretorio-de-armazenamento-do-arquivo-de-dados-mdf-ndf/#cancel" class="sharing_cancel">Cancelar</a>
+
+			<div class="errors errors-1" style="display: none;">
+				Post não foi enviado - verifique os seus endereços de email!			</div>
+
+			<div class="errors errors-2" style="display: none;">
+				Verificação de email falhou, por favor, tente novamente			</div>
+
+			<div class="errors errors-3" style="display: none;">
+				Desculpe, seu blog não pode compartilhar posts por email.			</div>
+		</form>
+	</div>
+		<iframe src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/master.htm" scrolling="no" id="likes-master" name="likes-master" style="display:none;"></iframe>
+		<div id="likes-other-gravatars"><div class="likes-text"><span>%d</span> bloggers like this:</div><ul class="wpl-avatars sd-like-gravatars"></ul></div>
+		<script type="text/javascript">
+		//<![CDATA[
+			var jetpackLikesWidgetQueue = [];
+			var jetpackLikesMasterReady = false;
+
+			function JetpackLikespostMessage( message, target ) {
+				if ( "string" === typeof message ){
+					try{
+						message = JSON.parse( message );
+					}
+					catch(e) {
+						return;
+					}
+				}
+
+				pm( {
+					target: target,
+					type: 'likesMessage',
+					data: message,
+					origin: '*'
+				} );
+			}
+
+			function JetpackLikesMessageListener( event ) {
+				if ( "undefined" == typeof event.event )
+					return;
+
+				if ( 'masterReady' == event.event ) {
+					jQuery( document ).ready( function() {
+						jetpackLikesMasterReady = true;
+
+						var stylesData = {
+								event: 'injectStyles'
+						};
+
+						if ( jQuery( 'iframe.admin-bar-likes-widget' ).length > 0 ) {
+							JetpackLikespostMessage( { event: 'adminBarEnabled' }, window.frames[ 'likes-master' ] );
+
+							stylesData.adminBarStyles = {
+								background: jQuery( '#wpadminbar .quicklinks li#wp-admin-bar-wpl-like > a' ).css( 'background' )
+							};
+						}
+
+						if ( !window.addEventListener )
+							jQuery( '#wp-admin-bar-admin-bar-likes-widget' ).hide();
+
+						stylesData.textStyles = {
+							color: jQuery( '.sd-text-color').css( 'color' ),
+							fontFamily: jQuery( '.sd-text-color' ).css( 'font-family' ),
+							fontSize: jQuery( '.sd-text-color' ).css( 'font-size' ),
+							direction: jQuery( '.sd-text-color' ).css( 'direction' ),
+							fontWeight: jQuery( '.sd-text-color' ).css( 'font-weight' ),
+							fontStyle: jQuery( '.sd-text-color' ).css( 'font-style' ),
+							textDecoration: jQuery( '.sd-text-color' ).css('text-decoration')
+						};
+
+						stylesData.linkStyles = {
+							color: jQuery( '.sd-link-color' ).css('color'),
+							fontFamily: jQuery( '.sd-link-color' ).css('font-family'),
+							fontSize: jQuery( '.sd-link-color' ).css('font-size'),
+							textDecoration: jQuery( '.sd-link-color' ).css('text-decoration'),
+							fontWeight: jQuery( '.sd-link-color' ).css( 'font-weight' ),
+							fontStyle: jQuery( '.sd-link-color' ).css( 'font-style' )
+						};
+
+						JetpackLikespostMessage( stylesData, window.frames[ 'likes-master' ] );
+
+						var requests = [];
+						jQuery( '.jetpack-likes-widget-wrapper' ).each( function( i ) {
+							var regex = /like-(post|comment)-wrapper-(\d+)-(\d+)-(\w+)/;
+							var match = regex.exec( this.id );
+							if ( ! match || match.length != 5 )
+								return;
+
+							var info = {
+								blog_id: match[2],
+								width:   this.width
+							};
+
+							if ( 'post' == match[1] ) {
+								info.post_id = match[3];
+							} else if ( 'comment' == match[1] ) {
+								info.comment_id = match[3];
+							}
+
+							info.obj_id = match[4];
+
+							requests.push( info );
+						});
+
+						JetpackLikespostMessage( { event: 'initialBatch', requests: requests }, window.frames['likes-master'] );
+
+						jQuery( document ).on( 'inview', 'div.jetpack-likes-widget-unloaded', function() {
+							jetpackLikesWidgetQueue.push( this.id );
+						});
+					});
+				}
+
+				if ( 'showLikeWidget' == event.event ) {
+					setTimeout( JetpackLikesWidgetQueueHandler, 10 );
+					jQuery( '#' + event.id + ' .post-likes-widget-placeholder'  ).fadeOut( 'fast', function() {
+						jQuery( '#' + event.id + ' .post-likes-widget' ).fadeIn( 'fast', function() {
+							JetpackLikespostMessage( { event: 'likeWidgetDisplayed', blog_id: event.blog_id, post_id: event.post_id, obj_id: event.obj_id }, window.frames['likes-master'] );
+						});
+					});
+				}
+
+				if ( 'showOtherGravatars' == event.event ) {
+					var $container = jQuery( '#likes-other-gravatars' );
+					var $list = $container.find( 'ul' );
+
+					$container.hide();
+					$list.html( '' );
+
+					$container.find( '.likes-text span' ).text( event.total );
+
+					jQuery.each( event.likers, function( i, liker ) {
+						$list.append( '<li class="' + liker.css_class + '"><a href="' + liker.profile_URL + '" class="wpl-liker" rel="nofollow" target="_parent"><img src="' + liker.avatar_URL + '" alt="' + liker.name + '" width="30" height="30" style="padding-right: 3px;" /></a></li>');
+					} );
+
+					var offset = jQuery( "[name='" + event.parent + "']" ).offset();
+
+					$container.css( 'left', offset.left + event.position.left - 10 + 'px' );
+					$container.css( 'top', offset.top + event.position.top - 33 + 'px' );
+
+					var rowLength = Math.floor( event.width / 37 );
+					var height = ( Math.ceil( event.likers.length / rowLength ) * 37 ) + 13;
+					if ( height > 204 ) {
+						height = 204;
+					}
+
+					$container.css( 'height', height + 'px' );
+					$container.css( 'width', rowLength * 37 - 7 + 'px' );
+
+					$list.css( 'width', rowLength * 37 + 'px' );
+
+					$container.fadeIn( 'slow' );
+
+					var scrollbarWidth = $list[0].offsetWidth - $list[0].clientWidth;
+					if ( scrollbarWidth > 0 ) {
+						$container.width( $container.width() + scrollbarWidth );
+						$list.width( $list.width() + scrollbarWidth );
+					}
+				}
+			}
+
+			pm.bind( 'likesMessage', function(e) { JetpackLikesMessageListener(e); } );
+
+			jQuery( document ).click( function( e ) {
+				var $container = jQuery( '#likes-other-gravatars' );
+
+				if ( $container.has( e.target ).length === 0 ) {
+					$container.fadeOut( 'slow' );
+				}
+			});
+
+			function JetpackLikesWidgetQueueHandler() {
+				var wrapperID;
+				if ( ! jetpackLikesMasterReady ) {
+					setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+					return;
+				}
+
+				if ( jetpackLikesWidgetQueue.length > 0 ) {
+					// We may have a widget that needs creating now
+					var found = false;
+					while( jetpackLikesWidgetQueue.length > 0 ) {
+						// Grab the first member of the queue that isn't already loading.
+						wrapperID = jetpackLikesWidgetQueue.splice( 0, 1 )[0];
+						if ( jQuery( '#' + wrapperID ).hasClass( 'jetpack-likes-widget-unloaded' ) ) {
+							found = true;
+							break;
+						}
+					}
+					if ( ! found ) {
+						setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+						return;
+					}
+				} else if ( jQuery( 'div.jetpack-likes-widget-unloaded' ).length > 0 ) {
+					// Get the next unloaded widget
+					wrapperID = jQuery( 'div.jetpack-likes-widget-unloaded' ).first()[0].id;
+					if ( ! wrapperID ) {
+						// Everything is currently loaded
+						setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+						return;
+					}
+				}
+
+				var $wrapper = jQuery( '#' + wrapperID );
+				$wrapper.find( 'iframe' ).remove();
+
+				if ( $wrapper.hasClass( 'slim-likes-widget' ) ) {
+					$wrapper.find( '.post-likes-widget-placeholder' ).after( "<iframe class='post-likes-widget jetpack-likes-widget' name='" + $wrapper.data( 'name' ) + "' height='22px' width='68px' frameBorder='0' scrolling='no' src='" + $wrapper.data( 'src' ) + "'></iframe>" );
+				} else {
+					$wrapper.find( '.post-likes-widget-placeholder' ).after( "<iframe class='post-likes-widget jetpack-likes-widget' name='" + $wrapper.data( 'name' ) + "' height='55px' width='100%' frameBorder='0' src='" + $wrapper.data( 'src' ) + "'></iframe>" );
+				}
+
+				$wrapper.removeClass( 'jetpack-likes-widget-unloaded' ).addClass( 'jetpack-likes-widget-loading' );
+
+				$wrapper.find( 'iframe' ).load( function( e ) {
+					var $iframe = jQuery( e.target );
+					$wrapper.removeClass( 'jetpack-likes-widget-loading' ).addClass( 'jetpack-likes-widget-loaded' );
+
+					JetpackLikespostMessage( { event: 'loadLikeWidget', name: $iframe.attr( 'name' ), width: $iframe.width() }, window.frames[ 'likes-master' ] );
+
+					if ( $wrapper.hasClass( 'slim-likes-widget' ) ) {
+						$wrapper.find( 'iframe' ).Jetpack( 'resizeable' );
+					}
+				});
+				setTimeout( JetpackLikesWidgetQueueHandler, 250 );
+			}
+			JetpackLikesWidgetQueueHandler();
+		//]]>
+		</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var recaptcha_options = {"lang":"pt"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/saved_resource(4)"></script>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script><script src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/w.js" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({'blog':'19723481','v':'wpcom','tz':'-3','user_id':'0','post':'24','subd':'edvaldocastro'});
+ex_go({'crypt':'UE5XaGUuOTlwaD85flAmcm1mcmZsaDhkV11YdT1UeVRla1NLdXYlUnJLd195UG5zZDJSY0lEaUVJbTNzZStxNkYzRFRmYnlwfDJIVTFpcGJNa3EtTzg5YUlpTXFITDVNeEFpZ200Z2xkVVM4V3RQPSwzdDVPTz8rVnx3R0FGSlZpdU9YRTNGfEhdcUYzNDQwNnxBbXJdOGRpTzRSRHNNQ2x2LVZEfmV2aDNHfCtRPT9zeE5ZRFJaZ25TZjRBWmdGaHdmX1ZjfGJBX3IlWy5+V0xRJk0uQmp6RG96Jl1jPThwemtQbFssVy9EY2I4JnJrUG89LHYrblYrSkZDeklkT2M3SGtyPTRYRF0lem8mUG1mST9aTS5xY3NPTDEuNmdIQX4/WWtSUkNteU1oPUpSbz1lZDYyRi1xSks4RmQzW3I='});
+addLoadEvent(function(){linktracker_init('19723481',24);});
+	</script><img id="wpstats" src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/g.gif" alt=""><img id="wpstats2" src="./Alterando diretório de armazenamento do arquivo de dados (.mdf   .ndf)   EDVALDO CASTRO - DBA_files/g(1).gif" alt="" style="display:none">
+<noscript>&lt;img src="http://stats.wordpress.com/b.gif?v=noscript" style="height:0px;width:0px;overflow:hidden" alt="" /&gt;</noscript>
+<script>
+if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+	wpcom_mobile_user_agent_info.init();
+	var mobileStatsQueryString = "";
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+		mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + wpcom_mobile_user_agent_info.matchedPlatformName;
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+		mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + wpcom_mobile_user_agent_info.matchedUserAgentName;
+	
+	if( wpcom_mobile_user_agent_info.isIPad() )
+		mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+	if( "" != mobileStatsQueryString ) {
+		new Image().src = document.location.protocol + '//stats.wordpress.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba=' + Math.random();
+	}
+	
+}
+</script>
+
+</body></html>
