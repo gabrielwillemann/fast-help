@@ -63,12 +63,17 @@ $ pg_dump --file="/home/FILENAME.backup" --host=localhost --dbname=DATABASENAME 
 $ pg_dump --file="/home/FILENAME.backup" --host=localhost --dbname=DATABASENAME --username=USERNAME --password
 ```
 
+If you want no input password:
+```sh
+$ PGPASSWORD=123456 pg_dump --file="/home/FILENAME.backup" --host=localhost --dbname=DATABASENAME --username=USERNAME --no-password
+```
+
 ### Retore backup plain text
 ```sh
 $ psql --host=localhost --dbname=DATABASENAME --username=USERNAME --password < /home/FILENAME.backup
 ```
 
-* Transfer backup through ssh
+### Transfer backup through ssh
 ```sh
 $ scp root@192.168.1.1:/home/FILENAME.backup /home
 ```
