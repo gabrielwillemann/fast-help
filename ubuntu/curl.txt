@@ -1,6 +1,0 @@
-* Normal request
-    * curl https://sharklabs.com.br/
-
-* Show response headers
-    * curl -I https://sharklabs.com.br/
-    * curl -i https://sharklabs.com.br/

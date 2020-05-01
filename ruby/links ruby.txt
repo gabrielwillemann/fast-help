@@ -1,8 +1,0 @@
-http://rubyinstaller.org/
-http://groups.google.com/group/rubyinstaller
-http://wiki.github.com/oneclick/rubyinstaller
-http://rubyinstaller.org/add-ons/devkit
-https://rubygems.org
-
-# Aprender Ruby
-https://www.ruby-lang.org/pt/documentation/quickstart/

@@ -1,2 +1,0 @@
-* Comando para mostrar o nome de todos os Time Zones
-    $ timedatectl list-timezones

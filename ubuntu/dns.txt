@@ -1,7 +1,0 @@
-Editor de DNS / Advanced Zone Editor
-* Tipo A: Adicionar redirecionamento para subdomínios
-* Tipo AAAA: Igual ao A, porém para IPV6
-* Tipo CNAME: É uma alias (apelido) para redirecionar para outro dominio
-* Tipo TXT: É uma entrada livre, que normalmente é usado verificar algumas informações
-
-https://codigosimples.net/2017/08/14/conheca-os-tipos-de-registros-aaaa-ns-cname-mx-ptr-soa-txt-srv-e-spf-em-um-dns/

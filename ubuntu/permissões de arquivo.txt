@@ -1,9 +1,0 @@
-* Ver permissões do arquivo
-    $ ls -l MY_FILE
-
-* Conceder permissão total
-    $ sudo chmod 777 MY_FILE   
-
-* Alterar owner de pasta
-    $ sudo chown -R USERNAME FOLDERNAME
-    * Acho que para arquivo funciona igual
