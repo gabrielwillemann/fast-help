@@ -4,8 +4,11 @@
 http://localhost:1337/person?limit=3&skip=0
 ```
 
-```
-Person.find().limit(3).skip(0).exec((e,r) => console.log(e, r));
+```js
+Person.find()
+  .limit(3)
+  .skip(0)
+  .exec((e, r) => console.log(e, r));
 ```
 
 ## Sort
