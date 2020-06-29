@@ -35,7 +35,7 @@ server {
 }
 ```
 
-For mutiple proxies:
+### For mutiple proxies:
 
 ```js
 server {
