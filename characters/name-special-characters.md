@@ -13,8 +13,6 @@
 | ^      | Caret / Up-arrow head              |
 | &      | Ampersand / And sign               |
 | \*     | Star / Asterisk                    |
-| (      | Opening parenthesis                |
-| )      | Closing parenthesis                |
 | \_     | Low line / Underscore              |
 | -      | Minus / Dash                       |
 | +      | Plus sign                          |
@@ -22,6 +20,8 @@
 | &#124; | Pipe / Vertical bar                |
 | \      | Backslash                          |
 | /      | Slash / Forward slash              |
+| (      | Opening parenthesis                |
+| )      | Closing parenthesis                |
 | {      | Opening brace                      |
 | }      | Closing brace                      |
 | [      | Opening bracket                    |
@@ -35,3 +35,8 @@
 | .      | Dot / Period                       |
 | ,      | Comma                              |
 | ?      | Question mark                      |
+
+Others names:
+- () Parentheses or round brackets
+- {} Braces or curly brackets
+- [] Brackets or square brackets
