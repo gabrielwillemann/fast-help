@@ -44,3 +44,13 @@ squash d987ebf This is commit 3
 ```
 
 Link: https://www.youtube.com/watch?v=V5KrD7CmO4o
+
+### Create branch and set-upstream
+
+```sh
+git remote add repo https://github.com/user/repo
+git fetch repo
+git checkout -b some-branch
+git branch --set-upstream-to repo/some-branch
+git branch -vv
+```
