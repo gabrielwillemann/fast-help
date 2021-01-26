@@ -54,3 +54,10 @@ git checkout -b some-branch
 git branch --set-upstream-to repo/some-branch
 git branch -vv
 ```
+
+### Rename commit message
+
+```sh
+git commit --amend -m "New commit message"
+git push -f
+```
