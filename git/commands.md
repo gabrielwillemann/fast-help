@@ -48,11 +48,19 @@ Link: https://www.youtube.com/watch?v=V5KrD7CmO4o
 ### Create branch and set-upstream
 
 ```sh
-git remote add repo https://github.com/user/repo
-git fetch repo
-git checkout -b some-branch
-git branch --set-upstream-to repo/some-branch
+git remote add REPO_NAME https://github.com/user/REPO_NAME
+git fetch REPO_NAME
+git checkout -b BRANCH_NAME
+git branch --set-upstream-to REPO_NAME/BRANCH_NAME
 git branch -vv
+git fetch
+git rebase
+```
+
+### Delete local branch
+
+```sh
+git branch -d BRANCH_NAME
 ```
 
 ### Rename commit message
